@@ -1,1 +1,174 @@
-index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DVC IPA - HACK GAME IOS©</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #282c34;
+            color: white;
+            padding: 10px 20px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        .nav-tabs {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-tabs a {
+            color: white;
+            text-decoration: none;
+        }
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .search-container input[type="text"] {
+            padding: 8px;
+            width: 50%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .search-container button {
+            padding: 8px;
+            margin-left: 10px;
+            background-color: #282c34;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .post {
+            margin: 10px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .post img {
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+        }
+        .pagination {
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        footer {
+            background-color: #282c34;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="DVC.png" alt="Uploaded Image"/>
+            <span><b>DVC IPA</b></span>
+        </div>
+        <nav class="nav-tabs">
+            <a href="index.html">Trang Chủ</a>
+            <a href="http://key.chungchidvc.com">Mua Key</a>
+            <a href="http://chungchidvc.com">Chứng Chỉ</a>
+        </nav>
+    </header>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search blog posts...">
+        <button onclick="searchPosts()">Search</button>
+    </div>
+
+    <div id="blogContainer"></div>
+    <div class="pagination" id="pagination"></div>
+
+    <footer>
+        <p>&copy; 2025 Team DVC. Xin cảm ơn anh em đã đồng hành và ủng hộ.</p>
+    </footer>
+
+    <script>
+        let allPosts = [];
+
+        async function loadBlogPosts() {
+    const response = await fetch('post.txt');
+    const text = await response.text();
+    const files = text.match(/\d+\.\s*(.+\.html)/g).map(line => line.replace(/^\d+\.\s*/, ''));
+    const posts = await Promise.all(files.map(async (file) => {
+        const res = await fetch(file);
+        const data = await res.text();
+        const doc = new DOMParser().parseFromString(data, 'text/html');
+        const title = doc.querySelector('h1').innerText || 'No Title';
+        
+        // Look for images within the div with class "container"
+        const container = doc.querySelector('div.container');
+        const img = container && container.querySelector('img') ? container.querySelector('img').src : '';
+
+        return { title, img, file };
+    }));
+    allPosts = posts.reverse();
+    displayPosts(allPosts);
+}
+
+        function displayPosts(posts) {
+            const container = document.getElementById('blogContainer');
+            const paginationContainer = document.getElementById('pagination');
+            const perPage = 5;
+            const totalPosts = posts.length;
+            const totalPages = Math.ceil(totalPosts / perPage);
+
+            function showPage(page) {
+                container.innerHTML = '';
+                const start = (page - 1) * perPage;
+                const end = start + perPage;
+                posts.slice(start, end).forEach(post => {
+                    const postElement = document.createElement('div');
+                    postElement.classList.add('post');
+                    postElement.innerHTML = `
+                        <img src="${post.img}" alt="Thumbnail">
+                        <div>
+                            <h2>${post.title}</h2>
+                            <a href="${post.file}">Read More</a>
+                        </div>
+                    `;
+                    container.appendChild(postElement);
+                });
+                paginationContainer.innerHTML = '';
+                for (let i = 1; i <= totalPages; i++) {
+                    const pageLink = document.createElement('button');
+                    pageLink.innerText = i;
+                    pageLink.disabled = i === page;
+                    pageLink.addEventListener('click', () => showPage(i));
+                    paginationContainer.appendChild(pageLink);
+                }
+            }
+            showPage(1);
+        }
+
+        function searchPosts() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filteredPosts = allPosts.filter(post => post.title.toLowerCase().includes(query));
+            displayPosts(filteredPosts);
+        }
+
+        loadBlogPosts();
+    </script>
+</body>
+</html>
