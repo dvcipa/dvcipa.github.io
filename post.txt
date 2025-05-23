@@ -11,3 +11,4 @@
 11.testgame2.html
 12.testgame2.html
 13.testgame2.html
+14.tieu-de-day.html
