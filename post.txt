@@ -9,3 +9,5 @@
 5.loot-heroes-1-6-0.html
 
 6.shadow-hunter-ban-do-v10-123-3.html
+
+7.shadow-hunter-ban-xanh-v11-123-3.html
