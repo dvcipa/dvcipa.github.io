@@ -7,3 +7,5 @@
 4.hill-climb-v1-65-0.html
 
 5.loot-heroes-1-6-0.html
+
+6.shadow-hunter-ban-do-v10-123-3.html
