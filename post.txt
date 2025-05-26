@@ -31,3 +31,5 @@
 16.hello-kitty-match-1-0-2.html
 
 17.police-simulator-cop-car-duty-v1-44.html
+
+18.asphalt-8-v8-3-0.html
