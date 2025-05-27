@@ -43,3 +43,5 @@
 22.dragon-wings-v1-5-0.html
 
 23.grunt-rush-0-22-7.html
+
+24.wukong-s-arsenal-v1-8-2.html
