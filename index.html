@@ -352,12 +352,12 @@
                 pageInput.type = 'number';
                 pageInput.min = 1;
                 pageInput.max = totalPages;
-                pageInput.placeholder = 'Nhập số trang';
+                pageInput.placeholder = 'Đi tới trang...';
                 pageInput.style.marginLeft = '5px';
-                paginationContainer.appendChild(pageInput);
+pageInput.style.width = '60px';                  paginationContainer.appendChild(pageInput);
                 
                 const jumpButton = document.createElement('button');
-                jumpButton.innerText = 'Đi tới';
+                jumpButton.innerText = 'Go';
                 jumpButton.addEventListener('click', () => {
                     const targetPage = Number(pageInput.value);
                     if (targetPage >= 1 && targetPage <= totalPages) {
