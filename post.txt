@@ -99,3 +99,5 @@
 50.throneholder-1-6-3.html
 
 51.archers-survivor-1-0-1.html
+
+52.ninja-battle-7-39-12.html
