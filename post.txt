@@ -127,3 +127,5 @@
 64.ash-n-veil-1-1-16.html
 
 65.transcendent-1-5-9.html
+
+66.monster-brawl-0-0-3.html
