@@ -131,3 +131,5 @@
 66.monster-brawl-0-0-3.html
 
 67.idle-pixel-magician-1-0-68.html
+
+68.cup-heroes-v2-0.html
