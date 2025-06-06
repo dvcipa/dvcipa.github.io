@@ -135,3 +135,5 @@
 68.cup-heroes-v2-0.html
 
 69.junkineering-robot-wars-rpg-1-1-4.html
+
+70.seraphim-saga-1-8-2.html
