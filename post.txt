@@ -149,3 +149,5 @@
 75.summoner-s-greed-idle-td-v1-94-3.html
 
 76.soul-knight-v7-3-0.html
+
+77.mech-war-v1-473.html
