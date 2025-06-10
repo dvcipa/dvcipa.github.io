@@ -193,3 +193,5 @@
 97.no-way-home-2-0-250.html
 
 98.hero-blitz-1-6-0.html
+
+99.hellsquad-rrrush-0-9-2.html
