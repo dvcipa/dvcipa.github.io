@@ -241,3 +241,5 @@
 121.fc-mobile-v25-0-02.html
 
 122.dream-league-soccer-v12-220.html
+
+123.loot-heroes-1-6-5.html
