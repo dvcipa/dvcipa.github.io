@@ -351,6 +351,15 @@
             pageInputGroup.appendChild(pageInput);
             pageInputGroup.appendChild(jumpButton);
             paginationContainer.appendChild(pageInputGroup);
+
+                        // Thêm sự kiện 'keypress' cho ô input số trang
+            pageInput.addEventListener('keypress', function(event) {
+                if (event.key === 'Enter') {
+                    event.preventDefault(); // Ngăn chặn hành vi mặc định (như gửi form)
+                    // Kích hoạt logic chuyển trang của nút Go
+                    jumpButton.click(); 
+                }
+            });
         }
 
         // Hàm tìm kiếm bài viết
