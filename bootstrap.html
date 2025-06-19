@@ -29,6 +29,7 @@
             height: 100px;
             object-fit: cover;
             flex-shrink: 0;
+            border-radius: 8px; /* Added for better visuals */
         }
 
         .features-text {
@@ -36,7 +37,7 @@
             margin-bottom: 0;
         }
 
-        /* KHẮC PHỤC 1: Style cho nút "Xem thêm..." */
+        /* Style for "Xem thêm..." button */
         .features-toggle {
             font-size: 0.8rem;
             text-decoration: none;
@@ -54,6 +55,16 @@
             flex-wrap: wrap;
             gap: 10px;
         }
+
+        /* Thêm style cho input số trang */
+        .pagination-container input[type="number"] {
+            width: 60px;
+            text-align: center;
+            margin-left: 5px;
+            border: 1px solid #dee2e6;
+            border-radius: .25rem;
+            padding: .375rem .75rem;
+        }
     </style>
 </head>
 
@@ -70,7 +81,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Trang Chủ</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Trang Chủ</a></li>
                     <li class="nav-item"><a class="nav-link" href="http://key.chungchidvc.com">Mua Key</a></li>
                     <li class="nav-item"><a class="nav-link" href="http://chungchidvc.com">Chứng Chỉ</a></li>
                 </ul>
@@ -104,62 +115,94 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+
+    <div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="notificationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-danger" id="notificationModalLabel"><i class="bi bi-exclamation-triangle-fill me-2"></i> **Thông báo quan trọng!!!**</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <p><b>Telegram đã bị chặn, anh em khắc phục tạm thời bằng cách lên Appstore tải app <span class="text-danger"><i>1.1.1.1</i></span> về sử dụng là sẽ vào được nhé.</b></p>
+                    <p><b>Thời gian tới bị chặn căng hơn thì anh em vào Facebook hoặc Discord nhé, team DVC vẫn sẽ duy trì hoạt động song song trên các nền tảng bên dưới.</b></p>
+                    <p class="mb-0"><b>Cảm ơn anh em!</b></p>
+                    <hr>
+                    <div class="d-flex justify-content-center flex-wrap gap-2 mt-3">
+                        <a href="https://t.me/dvcipaios" class="btn btn-info text-white">
+                            <i class="bi bi-telegram me-1"></i> Telegram
+                        </a>
+                        <a href="https://www.facebook.com/groups/1062344111635711/?ref=share&mibextid=NSMWBT" class="btn btn-primary">
+                            <i class="bi bi-facebook me-1"></i> Facebook
+                        </a>
+                        <a href="https://dvcipa.github.io/discord.html" class="btn btn-secondary">
+                            <i class="bi bi-discord me-1"></i> Discord
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Các biến toàn cục
         let allPosts = [];
-        let currentPosts = [];
+        let currentPosts = []; // Dùng để lưu trữ các bài viết sau khi tìm kiếm/lọc
 
         // Hàm tải bài viết từ post.txt
         async function loadBlogPosts() {
             try {
                 const response = await fetch('post.txt');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
                 const text = await response.text();
                 // Lọc ra các tên file .html từ nội dung post.txt
-                const files = text.match(/^\d+\.\s*(.+\.html)/gm).map(line => line.replace(/^\d+\.\s*/, ''));
+                const files = text.match(/^\d+\.\s*(.+\.html)/gm)?.map(line => line.replace(/^\d+\.\s*/, '')) || [];
                 
                 // Tạo mảng các Promise để fetch từng file
                 const postPromises = files.map(async (file) => {
                     try {
                         const res = await fetch(file);
-                        if (!res.ok) return null; // Bỏ qua nếu không fetch được
+                        if (!res.ok) {
+                            console.warn(`Could not fetch ${file}, skipping.`);
+                            return null;
+                        }
                         const data = await res.text();
                         const doc = new DOMParser().parseFromString(data, 'text/html');
 
                         // Lấy tiêu đề, ảnh và chức năng từ mỗi file HTML
                         const title = doc.querySelector('h1')?.innerText || 'Không có tiêu đề';
                         const img = doc.querySelector('div.container img')?.src || 'https://via.placeholder.com/100x100.png?text=DVC+IPA';
+                        
+                        // Logic trích xuất chức năng
                         let features = '';
-                        const allElements = doc.body.querySelectorAll('*');
-                        for (const el of allElements) {
-                            if (el.textContent.includes("Chức năng:")) {
-                                const fullHTML = el.innerHTML;
-                                const regex = /<br\s*\/?>\s*((?:🟢|✅).*?)(?=<br|$)/g;
-                                let collectedFeatures = [];
-                                let match;
-                                while ((match = regex.exec(fullHTML)) !== null) {
-                                    collectedFeatures.push(match[1].trim());
-                                }
-                                if (collectedFeatures.length > 0) {
-                                    features = collectedFeatures.join('<br>');
-                                }
-                                break;
+                        const featureElement = Array.from(doc.body.querySelectorAll('*')).find(el => el.textContent.includes("Chức năng:"));
+                        if (featureElement) {
+                            const fullHTML = featureElement.innerHTML;
+                            const regex = /<br\s*\/?>\s*((?:🟢|✅).*?)(?=<br|$)/g;
+                            let collectedFeatures = [];
+                            let match;
+                            while ((match = regex.exec(fullHTML)) !== null) {
+                                collectedFeatures.push(match[1].trim());
+                            }
+                            if (collectedFeatures.length > 0) {
+                                features = collectedFeatures.join('<br>');
                             }
                         }
                         return { title, img, file, features };
                     } catch (error) {
-                        console.error(`Error loading file ${file}:`, error);
+                        console.error(`Error processing file ${file}:`, error);
                         return null;
                     }
                 });
                 
                 // Chờ tất cả các Promise hoàn thành và lọc bỏ các bài viết lỗi
-                const posts = (await Promise.all(postPromises)).filter(p => p !== null);
-                allPosts = posts.reverse(); // Đảo ngược thứ tự bài viết
-                currentPosts = allPosts;
+                allPosts = (await Promise.all(postPromises)).filter(p => p !== null).reverse();
+                currentPosts = allPosts; // Ban đầu, currentPosts là tất cả các bài viết
                 displayPage(1); // Hiển thị trang đầu tiên
             } catch (error) {
                 console.error("Error loading blog posts:", error);
-                document.getElementById('blogContainer').innerHTML = `<div class="col-12"><div class="alert alert-danger">Không thể tải danh sách bài viết.</div></div>`;
+                document.getElementById('blogContainer').innerHTML = `<div class="col-12"><div class="alert alert-danger">Không thể tải danh sách bài viết. Vui lòng thử lại sau.</div></div>`;
             }
         }
 
@@ -167,7 +210,7 @@
         function displayPage(page) {
             const container = document.getElementById('blogContainer');
             const paginationContainer = document.getElementById('pagination');
-            const postsToDisplay = currentPosts;
+            const postsToDisplay = currentPosts; // Sử dụng currentPosts để hiển thị
 
             if (postsToDisplay.length === 0) {
                 container.innerHTML = `<div class="col-12"><div class="alert alert-warning">Không tìm thấy kết quả nào.</div></div>`;
@@ -183,38 +226,34 @@
             const paginatedPosts = postsToDisplay.slice(start, end);
 
             container.innerHTML = '';
-            // KHẮC PHỤC 2: Thêm "index" để tạo ID duy nhất cho mỗi collapse
-            paginatedPosts.forEach((post, index) => {
+            paginatedPosts.forEach((post, idx) => {
+                const postId = `post-${page}-${idx}`; // ID duy nhất cho mỗi post
                 const postCol = document.createElement('div');
                 postCol.className = 'col-12 col-md-6 col-lg-4';
 
-                // --- BẮT ĐẦU LOGIC TẠO DROPDOWN CHO CHỨC NĂNG ---
                 let featuresHTML = '';
                 const MAX_LINES = 2; // Số dòng hiển thị mặc định
 
                 if (post.features) {
                     const featuresArray = post.features.split('<br>');
                     if (featuresArray.length > MAX_LINES) {
-                        // Nếu danh sách dài, tạo component Collapse
                         const visiblePart = featuresArray.slice(0, MAX_LINES).join('<br>');
                         const hiddenPart = featuresArray.slice(MAX_LINES).join('<br>');
-                        const collapseId = `features-collapse-${index}`;
+                        const collapseId = `features-collapse-${postId}`; // ID duy nhất cho collapse
 
                         featuresHTML = `
-                            <div class="small text-muted features-text"><b>Chức năng:</b><br>${visiblePart}</div>
+                            <div class="small text-muted mb-1"><b>Chức năng:</b><br>${visiblePart}</div>
                             <div class="collapse" id="${collapseId}">
-                                <div class="small text-muted features-text">${hiddenPart}</div>
+                                <div class="small text-muted">${hiddenPart}</div>
                             </div>
-                            <a class="features-toggle" data-bs-toggle="collapse" href="#${collapseId}" role="button">
+                            <a class="features-toggle text-decoration-none" data-bs-toggle="collapse" href="#${collapseId}" role="button" aria-expanded="false" aria-controls="${collapseId}">
                                 ...Xem thêm
                             </a>
                         `;
                     } else {
-                        // Nếu danh sách ngắn, hiển thị bình thường
-                        featuresHTML = `<div class="small text-muted features-text"><b>Chức năng:</b><br>${post.features}</div>`;
+                        featuresHTML = `<div class="small text-muted mb-1"><b>Chức năng:</b><br>${post.features}</div>`;
                     }
                 }
-                // --- KẾT THÚC LOGIC ---
 
                 postCol.innerHTML = `
                     <div class="card post-card h-100">
@@ -233,64 +272,107 @@
                 container.appendChild(postCol);
             });
 
-            renderPagination(page, totalPages); // Hiển thị phân trang
+            renderPagination(page, totalPages);
         }
 
         // Hàm render phân trang
         function renderPagination(currentPage, totalPages) {
             const paginationContainer = document.getElementById('pagination');
             paginationContainer.innerHTML = '';
-            if (totalPages <= 1) return; // Không hiển thị nếu chỉ có 1 trang
+            if (totalPages <= 1) return;
 
             const paginationUl = document.createElement('ul');
-            paginationUl.className = 'pagination flex-wrap';
+            paginationUl.className = 'pagination flex-wrap justify-content-center';
 
-            // Hàm tạo item phân trang
             const createPageItem = (text, pageNum, isDisabled = false, isActive = false) => {
                 const li = document.createElement('li');
                 li.className = `page-item ${isDisabled ? 'disabled' : ''} ${isActive ? 'active' : ''}`;
                 const a = document.createElement('a');
                 a.className = 'page-link';
-                a.href = '#'; // Sử dụng # để ngăn tải lại trang
+                a.href = '#';
                 a.innerHTML = text;
                 a.addEventListener('click', (e) => {
-                    e.preventDefault(); // Ngăn hành vi mặc định của thẻ <a>
+                    e.preventDefault();
                     if (!isDisabled) displayPage(pageNum);
                 });
                 li.appendChild(a);
                 return li;
             };
 
-            // Thêm nút "Trang Đầu"
             paginationUl.appendChild(createPageItem('Trang Đầu', 1, currentPage === 1));
-            // Thêm nút "Trước"
-            paginationUl.appendChild(createPageItem('&laquo;', currentPage - 1, currentPage === 1));
+            paginationUl.appendChild(createPageItem('<i class="bi bi-chevron-left"></i>', currentPage - 1, currentPage === 1));
 
-            // Thêm các số trang
             let startPage = Math.max(1, currentPage - 2);
             let endPage = Math.min(totalPages, currentPage + 2);
+
+            // Adjust startPage and endPage to always show 5 pages (if available)
+            if (endPage - startPage + 1 < 5) {
+                if (currentPage <= 3) { // Near the beginning
+                    endPage = Math.min(totalPages, 5);
+                } else if (currentPage >= totalPages - 2) { // Near the end
+                    startPage = Math.max(1, totalPages - 4);
+                }
+            }
+
             for (let i = startPage; i <= endPage; i++) {
                 paginationUl.appendChild(createPageItem(i, i, false, i === currentPage));
             }
 
-            // Thêm nút "Tiếp"
-            paginationUl.appendChild(createPageItem('&raquo;', currentPage + 1, currentPage === totalPages));
-            // Thêm nút "Trang Cuối"
+            paginationUl.appendChild(createPageItem('<i class="bi bi-chevron-right"></i>', currentPage + 1, currentPage === totalPages));
             paginationUl.appendChild(createPageItem('Trang Cuối', totalPages, currentPage === totalPages));
-
+            
             paginationContainer.appendChild(paginationUl);
+
+            // Input to jump to a page
+            const pageInputGroup = document.createElement('div');
+            pageInputGroup.className = 'input-group ms-3';
+            pageInputGroup.style.width = 'fit-content'; 
+
+            const pageInput = document.createElement('input');
+            pageInput.type = 'number';
+            pageInput.min = 1;
+            pageInput.max = totalPages;
+            pageInput.placeholder = 'Trang';
+            pageInput.className = 'form-control';
+            pageInput.style.width = '80px'; 
+
+            const jumpButton = document.createElement('button');
+            jumpButton.innerText = 'Go';
+            jumpButton.className = 'btn btn-outline-secondary';
+            jumpButton.addEventListener('click', () => {
+                const targetPage = Number(pageInput.value);
+                if (targetPage >= 1 && targetPage <= totalPages) {
+                    displayPage(targetPage);
+                } else {
+                    alert(`Vui lòng nhập số trang từ 1 đến ${totalPages}.`);
+                }
+            });
+            
+            pageInputGroup.appendChild(pageInput);
+            pageInputGroup.appendChild(jumpButton);
+            paginationContainer.appendChild(pageInputGroup);
         }
 
         // Hàm tìm kiếm bài viết
         function searchPosts() {
             const query = document.getElementById('searchInput').value.toLowerCase();
             currentPosts = allPosts.filter(post => post.title.toLowerCase().includes(query));
-            displayPage(1); // Hiển thị trang đầu tiên với kết quả tìm kiếm
+            displayPage(1);
         }
 
-        // Khi DOM đã tải xong, gọi hàm loadBlogPosts để khởi tạo
+        // --- Logic mới: Hiển thị popup sau khi nội dung đã tải xong ---
+        // Hàm này sẽ được gọi sau khi loadBlogPosts() hoàn tất
+        function showNotificationModal() {
+            const notificationModal = new bootstrap.Modal(document.getElementById('notificationModal'));
+            notificationModal.show();
+        }
+
+        // Khi DOM đã tải xong, gọi hàm loadBlogPosts.
+        // Sau khi loadBlogPosts hoàn tất, nó sẽ gọi showNotificationModal.
         document.addEventListener("DOMContentLoaded", function () {
-            loadBlogPosts();
+            loadBlogPosts().then(() => {
+                showNotificationModal(); // Hiển thị modal sau khi các bài viết đã được tải và hiển thị
+            });
         });
     </script>
 </body>
