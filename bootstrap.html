@@ -35,7 +35,6 @@
             flex-wrap: wrap;
             gap: 10px;
         }
-        /* THAY ĐỔI 1: Đã gỡ bỏ giới hạn dòng của .features-text */
         .features-text {
             line-height: 1.5; /* Giãn cách dòng cho dễ đọc */
         }
@@ -134,24 +133,29 @@
                         const title = doc.querySelector('h1')?.innerText || 'Không có tiêu đề';
                         const img = doc.querySelector('div.container img')?.src || 'https://via.placeholder.com/100x100.png?text=DVC';
 
-                        // THAY ĐỔI 2: Logic lấy chức năng được viết lại cho chính xác tuyệt đối
-                        let features = ''; // Mặc định là chuỗi rỗng
+                        // THAY ĐỔI QUAN TRỌNG: Dùng Regex để lấy chính xác các dòng chức năng
+                        let features = '';
                         const allElements = doc.body.querySelectorAll('*');
                         for (const el of allElements) {
-                            // Tìm đúng thẻ có chứa chữ "Chức năng:"
                             if (el.textContent.includes("Chức năng:")) {
                                 const fullHTML = el.innerHTML;
-                                // Tìm vị trí của thẻ <br> đầu tiên
-                                const breakIndex = fullHTML.toLowerCase().indexOf('<br');
                                 
-                                if (breakIndex !== -1) {
-                                    // Tìm vị trí kết thúc của thẻ <br> đó (dấu >)
-                                    const tagEndIndex = fullHTML.indexOf('>', breakIndex);
-                                    if (tagEndIndex !== -1) {
-                                        // features là tất cả những gì nằm sau thẻ <br> đầu tiên
-                                        features = fullHTML.substring(tagEndIndex + 1).trim();
-                                    }
+                                // Regex để tìm các dòng bắt đầu bằng <br/> và theo sau là 🟢 hoặc ✅
+                                const regex = /<br\s*\/?>\s*((?:🟢|✅).*?)(?=<br|$)/g;
+                                let collectedFeatures = [];
+                                let match;
+
+                                // Lặp để lấy tất cả các kết quả khớp
+                                while ((match = regex.exec(fullHTML)) !== null) {
+                                    // match[1] chứa nội dung chức năng đã được làm sạch
+                                    collectedFeatures.push(match[1].trim());
                                 }
+
+                                if (collectedFeatures.length > 0) {
+                                    // Nối các chức năng lại với nhau bằng thẻ <br> để xuống dòng
+                                    features = collectedFeatures.join('<br>');
+                                }
+                                
                                 break; // Tìm thấy, thoát khỏi vòng lặp
                             }
                         }
@@ -195,7 +199,6 @@
                 const postCol = document.createElement('div');
                 postCol.className = 'col-12';
                 
-                // THAY ĐỔI 3: Chỉ hiển thị phần chức năng nếu có nội dung
                 const featuresHTML = post.features ? `
                     <div class="card-text text-muted small mb-2 features-text">
                         <b>Chức năng:</b><br>
@@ -249,14 +252,11 @@
             };
 
             paginationUl.appendChild(createPageItem('&laquo;', currentPage - 1, currentPage === 1));
-
             let startPage = Math.max(1, currentPage - 2);
             let endPage = Math.min(totalPages, currentPage + 2);
-
             for (let i = startPage; i <= endPage; i++) {
                 paginationUl.appendChild(createPageItem(i, i, false, i === currentPage));
             }
-            
             paginationUl.appendChild(createPageItem('&raquo;', currentPage + 1, currentPage === totalPages));
             paginationContainer.appendChild(paginationUl);
         }
