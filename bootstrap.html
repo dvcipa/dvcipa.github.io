@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DVC IPA - HACK GAME IOS©</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <style>
+        /* Giữ lại một vài style tùy chỉnh không có trong Bootstrap */
+        body {
+            background-color: #f8f9fa; /* Màu nền xám nhạt cho dễ nhìn */
+        }
+
+        .post-card {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+
+        .post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .post-img {
+            width: 100%;
+            height: 150px; /* Chiều cao cố định cho ảnh */
+            object-fit: cover; /* Đảm bảo ảnh không bị méo */
+        }
+        
+        .footer {
+            padding: 1.5rem 0;
+        }
+
+        .pagination-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="DVC.png" alt="Logo" style="height: 40px;" class="me-2">
+                <b>DVC IPA</b>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Trang Chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://key.chungchidvc.com">Mua Key</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://chungchidvc.com">Chứng Chỉ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="notificationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-danger" id="notificationModalLabel">
+                        <i class="bi bi-exclamation-triangle-fill"></i> Thông báo quan trọng!!!
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <b>Telegram đã bị chặn, anh em khắc phục tạm thời bằng cách lên Appstore tải app
+                            <span class="text-danger fst-italic">1.1.1.1</span> về sử dụng là sẽ vào được nhé.</b>
+                    </p>
+                    <p>
+                        <b>Thời gian tới bị chặn căng hơn thì anh em vào Facebook hoặc Discord nhé, team DVC vẫn sẽ duy trì hoạt động song song trên các nền tảng bên dưới.</b>
+                    </p>
+                    <p><b>Cảm ơn anh em!</b></p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <a href="https://t.me/dvcipaios" class="btn btn-primary"><i class="bi bi-telegram"></i> Telegram</a>
+                    <a href="https://www.facebook.com/groups/1062344111635711/?ref=share&mibextid=NSMWBT" class="btn btn-info text-white"><i class="bi bi-facebook"></i> Facebook</a>
+                    <a href="https://dvcipa.github.io/discord.html" class="btn btn-secondary"><i class="bi bi-discord"></i> Discord</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="container my-4">
+        <div class="row justify-content-center mb-4">
+            <div class="col-lg-8">
+                <div class="input-group">
+                    <input type="text" id="searchInput" class="form-control" placeholder="Tìm game hack...">
+                    <button class="btn btn-dark" type="button" onclick="searchPosts()"><i class="bi bi-search"></i> Tìm</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="blogContainer" class="row g-4">
+            </div>
+
+        <div class="pagination-container mt-5" id="pagination">
+            </div>
+    </main>
+
+    <footer class="footer bg-dark text-white text-center">
+        <div class="container">
+            <p class="mb-0">&copy; 2025 Team DVC. Xin cảm ơn anh em đã đồng hành và ủng hộ.</p>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script>
+        // Hiển thị popup modal khi trang được tải
+        document.addEventListener("DOMContentLoaded", function() {
+            const myModal = new bootstrap.Modal(document.getElementById('notificationModal'));
+            myModal.show();
+        });
+        
+        // --- Phần logic JavaScript của bạn không cần thay đổi nhiều, chỉ cần cập nhật phần render HTML ---
+
+        let allPosts = [];
+
+        async function loadBlogPosts() {
+            try {
+                const response = await fetch('post.txt');
+                const text = await response.text();
+                // Regex an toàn hơn để tránh các dòng trống
+                const files = text.match(/^\d+\.\s*(.+\.html)/gm).map(line => line.replace(/^\d+\.\s*/, ''));
+
+                const postPromises = files.map(async (file) => {
+                    try {
+                        const res = await fetch(file);
+                        if (!res.ok) return null; // Bỏ qua nếu không fetch được file
+                        const data = await res.text();
+                        const doc = new DOMParser().parseFromString(data, 'text/html');
+                        const title = doc.querySelector('h1')?.innerText || 'Không có tiêu đề';
+                        const container = doc.querySelector('div.container');
+                        const img = container?.querySelector('img')?.src || 'https://via.placeholder.com/300x150.png?text=DVC+IPA'; // Ảnh mặc định
+                        return { title, img, file };
+                    } catch (error) {
+                        console.error('Error fetching post file:', file, error);
+                        return null; // Bỏ qua file lỗi
+                    }
+                });
+
+                const posts = (await Promise.all(postPromises)).filter(p => p !== null); // Lọc ra các bài post bị lỗi
+                allPosts = posts.reverse();
+                displayPosts(allPosts);
+            } catch (error) {
+                console.error('Error loading post.txt:', error);
+                document.getElementById('blogContainer').innerHTML = `<div class="col-12"><div class="alert alert-danger">Không thể tải danh sách bài viết. Vui lòng kiểm tra file post.txt.</div></div>`;
+            }
+        }
+
+        function displayPosts(posts) {
+            const container = document.getElementById('blogContainer');
+            if (posts.length === 0) {
+                container.innerHTML = `<div class="col-12"><div class="alert alert-warning">Không tìm thấy kết quả nào.</div></div>`;
+                document.getElementById('pagination').innerHTML = '';
+                return;
+            }
+
+            const perPage = 12; // Tăng số lượng post mỗi trang
+            const totalPosts = posts.length;
+            const totalPages = Math.ceil(totalPosts / perPage);
+            const urlParams = new URLSearchParams(window.location.search);
+            let currentPage = parseInt(urlParams.get('page')) || 1;
+            if (currentPage > totalPages) currentPage = totalPages;
+            if (currentPage < 1) currentPage = 1;
+
+            showPage(currentPage);
+
+            function showPage(page) {
+                container.innerHTML = '';
+                const start = (page - 1) * perPage;
+                const end = start + perPage;
+
+                posts.slice(start, end).forEach(post => {
+                    const postCol = document.createElement('div');
+                    // Sử dụng grid của Bootstrap: 1 cột trên mobile, 2 trên tablet, 3 trên desktop
+                    postCol.className = 'col-md-4 col-sm-6'; 
+                    
+                    // Sử dụng component Card của Bootstrap
+                    postCol.innerHTML = `
+                        <div class="card h-100 post-card">
+                            <img src="${post.img}" class="card-img-top post-img" alt="${post.title}">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">${post.title}</h5>
+                                <a href="${post.file}" class="btn btn-dark mt-auto align-self-start">Xem ngay...</a>
+                            </div>
+                        </div>
+                    `;
+                    container.appendChild(postCol);
+                });
+                renderPagination(page, totalPages);
+            }
+        }
+
+        function renderPagination(currentPage, totalPages) {
+            const paginationContainer = document.getElementById('pagination');
+            paginationContainer.innerHTML = '';
+            if (totalPages <= 1) return;
+
+            // Dùng component Pagination của Bootstrap
+            const paginationUl = document.createElement('ul');
+            paginationUl.className = 'pagination';
+
+            const createPageItem = (text, pageNum, isDisabled = false, isActive = false) => {
+                const li = document.createElement('li');
+                li.className = `page-item ${isDisabled ? 'disabled' : ''} ${isActive ? 'active' : ''}`;
+                const a = document.createElement('a');
+                a.className = 'page-link';
+                a.href = '#';
+                a.innerHTML = text;
+                a.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (!isDisabled) displayPosts(allPosts, pageNum);
+                });
+                li.appendChild(a);
+                return li;
+            };
+
+            // Nút trang trước
+            paginationUl.appendChild(createPageItem('&laquo;', currentPage - 1, currentPage === 1));
+
+            // Các nút trang
+            let startPage = Math.max(1, currentPage - 2);
+            let endPage = Math.min(totalPages, currentPage + 2);
+            
+            if (currentPage <= 3) {
+                 endPage = Math.min(totalPages, 5);
+            }
+            if (currentPage > totalPages - 3) {
+                startPage = Math.max(1, totalPages - 4);
+            }
+
+
+            for (let i = startPage; i <= endPage; i++) {
+                paginationUl.appendChild(createPageItem(i, i, false, i === currentPage));
+            }
+            
+            // Nút trang sau
+            paginationUl.appendChild(createPageItem('&raquo;', currentPage + 1, currentPage === totalPages));
+            
+            paginationContainer.appendChild(paginationUl);
+        }
+
+        function searchPosts() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filteredPosts = allPosts.filter(post => post.title.toLowerCase().includes(query));
+            displayPosts(filteredPosts);
+        }
+        
+        // Tải các bài đăng khi trang được mở
+        loadBlogPosts();
+
+    </script>
+</body>
+
+</html>
