@@ -370,6 +370,16 @@
         // Khi DOM đã tải xong, gọi hàm loadBlogPosts.
         // Sau khi loadBlogPosts hoàn tất, nó sẽ gọi showNotificationModal.
         document.addEventListener("DOMContentLoaded", function () {
+
+if (event.key === 'Enter') {
+            // Ngăn chặn hành vi mặc định của phím Enter (ví dụ: gửi form)
+            event.preventDefault();
+            // Gọi hàm tìm kiếm
+            searchPosts();
+        }
+    });
+
+            
             loadBlogPosts().then(() => {
                 showNotificationModal(); // Hiển thị modal sau khi các bài viết đã được tải và hiển thị
             });
