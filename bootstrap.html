@@ -35,13 +35,14 @@
             flex-wrap: wrap;
             gap: 10px;
         }
-        /* Style cho phần mô tả chức năng */
+        /* THAY ĐỔI 1: Tăng giới hạn dòng và điều chỉnh style cho phần chức năng */
         .features-text {
             display: -webkit-box;
-            -webkit-line-clamp: 2; /* Giới hạn hiển thị 2 dòng */
+            -webkit-line-clamp: 3; /* Tăng giới hạn hiển thị lên 3 dòng */
             -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis;
+            line-height: 1.4; /* Giãn cách dòng cho dễ đọc */
         }
     </style>
 </head>
@@ -143,25 +144,32 @@
                         const title = doc.querySelector('h1')?.innerText || 'Không có tiêu đề';
                         const img = doc.querySelector('div.container img')?.src || 'https://via.placeholder.com/100x100.png?text=DVC';
 
-                        // THAY ĐỔI 1: Lấy nội dung phần "Chức năng"
-                        let features = 'Không có mô tả chi tiết.'; // Mặc định nếu không tìm thấy
-                        const bodyText = doc.body.innerText;
-                        const keyword = "Chức năng:";
-                        const keywordIndex = bodyText.indexOf(keyword);
-
-                        if (keywordIndex !== -1) {
-                            // Cắt chuỗi từ sau "Chức năng:"
-                            let extractedText = bodyText.substring(keywordIndex + keyword.length);
-                            // Tìm vị trí xuống dòng đầu tiên để kết thúc phần chức năng
-                            const endOfLineIndex = extractedText.indexOf('\n');
-                            if (endOfLineIndex !== -1) {
-                                extractedText = extractedText.substring(0, endOfLineIndex);
+                        // THAY ĐỔI 2: Logic lấy nội dung chức năng thông minh hơn
+                        let features = 'Không có mô tả chi tiết.';
+                        // Lặp qua tất cả các thẻ trong trang con để tìm thẻ chứa chữ "Chức năng:"
+                        const allElements = doc.body.querySelectorAll('*');
+                        for (const el of allElements) {
+                            if (el.textContent.includes("Chức năng:")) {
+                                // Giả định rằng danh sách chức năng nằm ở thẻ ngay sau thẻ chứa tiêu đề "Chức năng:"
+                                // Ví dụ: <p>Chức năng:</p> <ul>...</ul>
+                                if (el.nextElementSibling) {
+                                    features = el.nextElementSibling.innerHTML;
+                                } 
+                                // Hoặc nếu danh sách nằm ngay trong cùng một thẻ, sau một thẻ <br>
+                                // Ví dụ: <p>Chức năng:<br>- Mod 1<br>- Mod 2</p>
+                                else {
+                                    let tempHTML = el.innerHTML;
+                                    const keywordRegex = /Chức năng:(&nbsp;|<br>)?/i;
+                                    const match = tempHTML.match(keywordRegex);
+                                    if (match) {
+                                        features = tempHTML.substring(match.index + match[0].length).trim();
+                                    }
+                                }
+                                break; // Tìm thấy rồi thì dừng lại
                             }
-                            // Gán giá trị sau khi đã làm sạch khoảng trắng
-                            features = extractedText.trim();
                         }
                         
-                        return { title, img, file, features }; // Thêm "features" vào object trả về
+                        return { title, img, file, features };
                     } catch (error) {
                         console.error('Lỗi khi tải file:', file, error);
                         return null;
@@ -180,6 +188,7 @@
 
         function displayPage(page) {
             const container = document.getElementById('blogContainer');
+            //... (phần còn lại của hàm này không đổi)
             const paginationContainer = document.getElementById('pagination');
             const postsToDisplay = currentPosts;
 
@@ -201,8 +210,8 @@
             paginatedPosts.forEach(post => {
                 const postCol = document.createElement('div');
                 postCol.className = 'col-12';
-
-                // THAY ĐỔI 2: Thêm thẻ <p> để hiển thị nội dung "features"
+                
+                // THAY ĐỔI 3: Hiển thị nội dung HTML của features
                 postCol.innerHTML = `
                     <div class="card post-card">
                         <div class="row g-0">
@@ -212,9 +221,10 @@
                             <div class="col">
                                 <div class="card-body py-2 px-3">
                                     <h5 class="card-title mb-1">${post.title}</h5>
-                                    <p class="card-text text-muted small mb-2 features-text">
-                                        <b>Chức năng:</b> ${post.features}
-                                    </p>
+                                    <div class="card-text text-muted small mb-2 features-text">
+                                        <b>Chức năng:</b><br>
+                                        ${post.features}
+                                    </div>
                                     <a href="${post.file}" class="btn btn-sm btn-dark">Xem ngay...</a>
                                 </div>
                             </div>
