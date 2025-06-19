@@ -149,18 +149,15 @@
         // Hàm tải bài viết từ posts_data.json
         async function loadBlogPosts() {
             try {
-                // Thay đổi từ 'post.txt' sang 'posts_data.json'
                 const response = await fetch('posts_data.json'); 
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
-                // Dữ liệu JSON đã là một mảng các đối tượng bài viết
                 const posts = await response.json(); 
 
-                // Giả sử posts_data.json đã được tạo với thứ tự mong muốn
-                // Nếu bạn muốn đảo ngược thứ tự (bài mới nhất lên đầu), hãy dùng:
-                // allPosts = posts.reverse();
-                allPosts = posts; 
+                // THAY ĐỔI Ở ĐÂY: Đảo ngược thứ tự mảng 'posts' ngay sau khi tải
+                allPosts = posts.reverse(); 
+                
                 currentPosts = allPosts;
                 displayPage(1); 
             } catch (error) {
@@ -169,7 +166,7 @@
             }
         }
 
-        // Hàm hiển thị bài viết theo trang (không thay đổi nhiều logic cốt lõi)
+        // Các hàm khác (displayPage, renderPagination, searchPosts, showNotificationModal) không thay đổi
         function displayPage(page) {
             const container = document.getElementById('blogContainer');
             const paginationContainer = document.getElementById('pagination');
@@ -197,19 +194,6 @@
                 let featuresHTML = '';
                 const MAX_LINES = 2;
 
-                // post.features đã là HTML với <br> do PHP script tạo ra
-                // Tuy nhiên, ký tự '&gt;' và '&lt;' cần được xử lý nếu nó không phải là mã hóa HTML Entity cho '>' và '<'
-                // Nếu post.features chứa "Tiền &gt; càng dùng càng tăng", nó cần được giải mã
-                // Bạn có thể dùng một div tạm thời để giải mã HTML entities nếu cần:
-                // const tempDiv = document.createElement('div');
-                // tempDiv.innerHTML = post.features;
-                // const cleanFeatures = tempDiv.textContent || tempDiv.innerText; // Lấy text an toàn
-                // featuresArray = cleanFeatures.split('<br>'); // Sau đó chia theo <br>
-
-                // Vì bạn nói format là "🟢Vô hạn Tiền -&gt; càng dùng càng tăng<br>...",
-                // nghĩa là '&gt;' đã có trong string, JS sẽ render nó thành '>' bình thường.
-                // Nếu 'features' chỉ chứa text thuần và bạn muốn tự thêm <br>, hãy dùng post.features.replace(/\n/g, '<br>');
-                // Hiện tại, post.features đã là HTML string, nên không cần thay đổi gì thêm.
                 if (post.features) {
                     const featuresArray = post.features.split('<br>');
                     if (featuresArray.length > MAX_LINES) {
@@ -251,7 +235,6 @@
             renderPagination(page, totalPages);
         }
 
-        // Hàm render phân trang (không đổi)
         function renderPagination(currentPage, totalPages) {
             const paginationContainer = document.getElementById('pagination');
             paginationContainer.innerHTML = '';
@@ -334,20 +317,17 @@
             });
         }
 
-        // Hàm tìm kiếm bài viết (không đổi)
         function searchPosts() {
             const query = document.getElementById('searchInput').value.toLowerCase();
             currentPosts = allPosts.filter(post => post.title.toLowerCase().includes(query));
             displayPage(1);
         }
 
-        // Hàm hiển thị popup thông báo (không đổi)
         function showNotificationModal() {
             const notificationModal = new bootstrap.Modal(document.getElementById('notificationModal'));
             notificationModal.show();
         }
 
-        // Khi DOM đã tải xong
         document.addEventListener("DOMContentLoaded", function () {
             const searchInput = document.getElementById('searchInput');
 
