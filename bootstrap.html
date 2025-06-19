@@ -367,20 +367,23 @@
             notificationModal.show();
         }
 
-        // Khi DOM đã tải xong, gọi hàm loadBlogPosts.
-        // Sau khi loadBlogPosts hoàn tất, nó sẽ gọi showNotificationModal.
         document.addEventListener("DOMContentLoaded", function () {
+            // Lấy tham chiếu đến trường tìm kiếm
+            const searchInput = document.getElementById('searchInput');
 
-if (event.key === 'Enter') {
-            // Ngăn chặn hành vi mặc định của phím Enter (ví dụ: gửi form)
-            event.preventDefault();
-            // Gọi hàm tìm kiếm
-            searchPosts();
-        }
+            // Thêm sự kiện 'keypress' để lắng nghe phím Enter
+            searchInput.addEventListener('keypress', function(event) {
+                // Kiểm tra nếu phím được nhấn là 'Enter' (keyCode 13)
+                if (event.key === 'Enter') {
+                    // Ngăn chặn hành vi mặc định của phím Enter (ví dụ: gửi form)
+                    event.preventDefault();
+                    // Gọi hàm tìm kiếm
+                    searchPosts();
+                }
+            });
 
-            
             loadBlogPosts().then(() => {
-                showNotificationModal(); // Hiển thị modal sau khi các bài viết đã được tải và hiển thị
+                showNotificationModal();
             });
         });
     </script>
