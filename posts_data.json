@@ -1,0 +1,842 @@
+[
+    {
+        "title": "Thông báo",
+        "img": "img\/1.png",
+        "file": "thong-bao.html",
+        "features": ""
+    },
+    {
+        "title": "Summoner’s Greed v1.93.4",
+        "img": "img\/2.png",
+        "file": "summoner-s-greed-v1-93-4.html",
+        "features": "🟢Vô hạn Tiền -&gt; càng dùng càng tăng<br>🟢Mua free gói nạp<br>🟢Tiêm sẵn IGG"
+    },
+    {
+        "title": "Gossip Street Merge & Story [2.5.2]",
+        "img": "img\/3.png",
+        "file": "gossip-street-merge-story-2-5-2.html",
+        "features": "🟢 Đóng Băng Tài Nguyên<br>🟢 Vô Hạn Tài Nguyên<br>🟢 Mở Gói Pass<br>🟢 Vô Hạn Nhận (Trong Pass)"
+    },
+    {
+        "title": "Hill Climb v1.65.0",
+        "img": "img\/4.png",
+        "file": "hill-climb-v1-65-0.html",
+        "features": "🟢Mua free gói nạp"
+    },
+    {
+        "title": "Loot Heroes [1.6.0]",
+        "img": "img\/5.png",
+        "file": "loot-heroes-1-6-0.html",
+        "features": "🟢 Cấp 100<br>🟢 Nhận Thưởng Hằng Ngày<br>🟢 Đóng Băng Tiền Tệ<br>🟢 Bất Tử"
+    },
+    {
+        "title": "Shadow Hunter bản đỏ v10.123.3",
+        "img": "img\/6.png",
+        "file": "shadow-hunter-ban-do-v10-123-3.html",
+        "features": "🟢 Tăng cấp thiết bị miễn phí<br>🟢 Cửa hàng thương mại miễn phí<br>🟢 Cửa hàng thần bí miễn phí<br>🟢 Cửa hàng mảnh vỡ miễn phí<br>🟢 Cửa hàng video miễn phí<br>🟢 Không yêu cầu thăng cấp<br>🟢 Không yêu cầu tiến hóa<br>🟢 1 items = 100 items"
+    },
+    {
+        "title": "Shadow Hunter bản xanh v11.123.3",
+        "img": "img\/7.png",
+        "file": "shadow-hunter-ban-xanh-v11-123-3.html",
+        "features": "🟢 Tăng cấp thiết bị miễn phí<br>🟢 Cửa hàng thương mại miễn phí<br>🟢 Cửa hàng thần bí miễn phí<br>🟢 Cửa hàng mảnh vỡ miễn phí<br>🟢 Cửa hàng video miễn phí<br>🟢 Không yêu cầu thăng cấp<br>🟢 Không yêu cầu tiến hóa<br>🟢 1 items = 100 items"
+    },
+    {
+        "title": "Archmagic survivors TD [1.0.139]",
+        "img": "img\/8.png",
+        "file": "archmagic-survivors-td-1-0-139.html",
+        "features": "🟢 Nâng Cấp Kỹ Năng (0)<br>🟢 Vô Hạn Vàng - Vào Shop kéo Xuống Là Thấy<br>🟢 Bất Tử"
+    },
+    {
+        "title": "The Last Survivor [1.0.44]",
+        "img": "img\/9.png",
+        "file": "the-last-survivor-1-0-44.html",
+        "features": "🟢 Xoá ADS<br>🟢 Mở Khoá Premium<br>🟢 Bất Tử<br>🟢 Vô Hạn Vàng - Dùng 1 ít Là Tăng<br>🟢 Vô Hạn Kim Cương - Dùng 1 ít Là Tăng<br>🟢 Vô Hạn Năng Lượng - Dùng 1 ít Là Tăng<br>🟢 Vô Hạn EXP Nâng Cấp Cho NV - Dùng 1 ít Là Tăng"
+    },
+    {
+        "title": "Tower Warriors [0.0.9]",
+        "img": "img\/10.png",
+        "file": "tower-warriors-0-0-9.html",
+        "features": "🟢 Mua Free Gói Nạp"
+    },
+    {
+        "title": "Truckers of Europe 3 [0.50.4]",
+        "img": "img\/11.png",
+        "file": "truckers-of-europe-3-0-50-4.html",
+        "features": "🟢 Mua Free Gói Nạp"
+    },
+    {
+        "title": "cat cafe [1.1.1]",
+        "img": "img\/12.png",
+        "file": "cat-cafe-1-1-1.html",
+        "features": "🟢 Mua Free Gói Nạp"
+    },
+    {
+        "title": "Green Goblin [0.0.5]",
+        "img": "img\/13.png",
+        "file": "green-goblin-0-0-5.html",
+        "features": "🟢  Auto Win<br>🟢 Quái Ngu"
+    },
+    {
+        "title": "Head Soccer Goal Clash [1.1]",
+        "img": "img\/14.png",
+        "file": "head-soccer-goal-clash-1-1.html",
+        "features": "🟢 Mua Nhân Vật Với Giá (0)<br>🟢 Mua Bóng Với Giá (0)"
+    },
+    {
+        "title": "Cluckn Serve [1.0.1]",
+        "img": "img\/15.png",
+        "file": "cluckn-serve-1-0-1.html",
+        "features": "🟢 Đóng Băng Năng Lượng<br>🟢 Mở All Đầu Bếp<br>🟢 Vô Hạn Vàng<br>🟢 AntiCheat"
+    },
+    {
+        "title": "Hello Kitty Match [1.0.2]",
+        "img": "img\/16.png",
+        "file": "hello-kitty-match-1-0-2.html",
+        "features": "🟢 Auto Win"
+    },
+    {
+        "title": "Police Simulator Cop Car Duty v1.44",
+        "img": "img\/17.png",
+        "file": "police-simulator-cop-car-duty-v1-44.html",
+        "features": "🟢Vô hạn Tiền -&gt; càng dùng càng tăng"
+    },
+    {
+        "title": "Asphalt 8 v8.3.0",
+        "img": "img\/18.png",
+        "file": "asphalt-8-v8-3-0.html",
+        "features": "✅ Vô hạn Nitro<br>✅ Không có va chạm xe<br>✅ Không yêu cầu cấp bậc để thực hiện các nhiệm vụ thành thạo<br>✅ Mở khoá Tag Season<br>✅ Mờ khoá xe<br>✅ Không giới hạn tốc độ<br>✅ Ngôi sao Mastery cao"
+    },
+    {
+        "title": "Food Gang v1.1.20",
+        "img": "img\/19.png",
+        "file": "food-gang-v1-1-20.html",
+        "features": "🟢Mua free gói nạp"
+    },
+    {
+        "title": "Fish Eater [1.9.0]",
+        "img": "img\/20.png",
+        "file": "fish-eater-1-9-0.html",
+        "features": "🟢 Vô Hạn Vàng (Càng Dùng Càng Tăng)<br>🟢 Vô Hạn Kim Cương (Càng Dùng Càng Tăng)<br>🟢 Mở Khoá Cá<br>🟢 Mở Khoá Trang Phục Cá<br>🟢 Mở Gói Premium<br>🟢 1 Hit<br>🟢 Bất Tử<br>🟢 Xoá ADS"
+    },
+    {
+        "title": "Coin Master [3.5.2090]",
+        "img": "img\/21.png",
+        "file": "coin-master-3-5-2090.html",
+        "features": "🟢 IGG Giữ Vào Bật Speed<br>🟢 Skip ADS (Nếu Có)"
+    },
+    {
+        "title": "Dragon Wings v1.5.0",
+        "img": "img\/22.png",
+        "file": "dragon-wings-v1-5-0.html",
+        "features": "🟢Damage<br>🟢Bất tử<br>🟢Gem -&gt; đổi tên để tăng<br>🟢Vàng ~&gt; bán linh thú để tăng<br>🟢Kích hoạt Super Card"
+    },
+    {
+        "title": "Grunt Rush [0.22.7]",
+        "img": "img\/23.png",
+        "file": "grunt-rush-0-22-7.html",
+        "features": "🟢 Triệu Hồi Units Nhanh<br>🟢 Vô Hạn Vàng<br>🟢 Vô Hạn Kim Cương<br>🟢 Vô Hạn ADS<br>🟢 Mở All Units<br>🟢 Mở Gói Pass<br>🟢 Xoá ADS Banner"
+    },
+    {
+        "title": "Wukong’s Arsenal v1.8.2",
+        "img": "img\/24.png",
+        "file": "wukong-s-arsenal-v1-8-2.html",
+        "features": "🟢Bất tử<br>🟢Vô hạn Vàng trong trận<br>🟢Mua free gói nạp"
+    },
+    {
+        "title": "Summoner's Greed - Idle TD v1.94.0",
+        "img": "img\/25.png",
+        "file": "summoner-s-greed-idle-td-v1-94-0.html",
+        "features": "🟢Vô hạn Tiền tệ -&gt; có thể dùng khi không đủ<br>🟢Mua free gói nạp"
+    },
+    {
+        "title": "Dragon City v25.7.1",
+        "img": "img\/26.png",
+        "file": "dragon-city-v25-7-1.html",
+        "features": "🟢Bỏ lượt địch<br>🟢1 Hit<br>🟢Bất tử<br>🟢Tua nhanh quảng cáo"
+    },
+    {
+        "title": "Monster Legends v17.9.4",
+        "img": "img\/27.png",
+        "file": "monster-legends-v17-9-4.html",
+        "features": "🟢No skill cost<br>🟢Luôn đạt 3 sao<br>🟢1 Hit<br>🟢Auto Win<br>🟢Bỏ lượt địch"
+    },
+    {
+        "title": "Otherworld Legends V2.10.0",
+        "img": "img\/28.png",
+        "file": "otherworld-legends-v2-10-0.html",
+        "features": "🟢 Mua free gói nạp"
+    },
+    {
+        "title": "Tropicats [1.76.11]",
+        "img": "img\/29.png",
+        "file": "tropicats-1-76-11.html",
+        "features": "🟢 Vô Hạn Kim Cương<br>🟢 Vô Hạn Xu<br>🟢 Vô Hạn Tim<br>🟢 Vô Hạn Booster<br>🟢 LVL<br>🟢 Auto Win"
+    },
+    {
+        "title": "Liên Quân Mobile INDO [1.58.2]",
+        "img": "img\/30.png",
+        "file": "lien-quan-mobile-indo-1-58-2.html",
+        "features": "🟢 Hack map soi sáng full map<br>🟢 Hiện unti<br>🟢 Hiện Rank<br>🟢 Hiện time bùa địch, hồi Bổ trợ<br>🟢 Antibanned Vip Si Líp"
+    },
+    {
+        "title": "Hero Survival IO 2 [1.0.5]",
+        "img": "img\/31.png",
+        "file": "hero-survival-io-2-1-0-5.html",
+        "features": "🟢 1 Hit + Kill<br>🟢 Bất Tử<br>🟢 Max Tiến Hoá<br>🟢 Max Kỹ Năng<br>🟢 Vô Hạn Vàng (Trong Trận)<br>🟢 Vô Hạn Kim Cương ( Vào NV Hằng Ngày Để Nhận)<br>🟢Xoá ADS"
+    },
+    {
+        "title": "Dungeon Slasher [0.735.2]",
+        "img": "img\/32.png",
+        "file": "dungeon-slasher-0-735-2.html",
+        "features": "🟢 1 Hit<br>🟢 Bất Tử<br>🟢 Free Shop ( Một Số)"
+    },
+    {
+        "title": "Vampires Fall 2 [1.1.104]",
+        "img": "img\/33.png",
+        "file": "vampires-fall-2-1-1-104.html",
+        "features": "🟢 Vô Hạn Xu<br>🟢 Vô Hạn Mảnh Vỡ<br>🟢 Vô Hạn Đá Máu<br>🟢 Vô Hạn Kỹ Năng"
+    },
+    {
+        "title": "Merge Cooking v1.1.92",
+        "img": "img\/34.png",
+        "file": "merge-cooking-v1-1-92.html",
+        "features": "🟢 Đóng băng Năng lượng<br>🟢1 Vàng để hoàn thành Nhiệm Vụ<br>🟢Không có thời gian hồi các máy sản xuất vật phẩm<br>🟢Vô hạn Gem -&gt; có thể dùng khi không có đủ -&gt; chỉ bật khi cần dùng để tránh lỗi game"
+    },
+    {
+        "title": "Simcity v1.65.1",
+        "img": "img\/35.png",
+        "file": "simcity-v1-65-1.html",
+        "features": "🟢Vô hạn tài nguyên -&gt; càng dùng càng tăng"
+    },
+    {
+        "title": "Travel Town v2.12.1071",
+        "img": "img\/36.png",
+        "file": "travel-town-v2-12-1071.html",
+        "features": "🟢Vô hạn Năng Lượng<br>🟢Ghép vật phẩm bất kì<br>🟢Mở rương 1 Kim Cương<br>🟢Unlock Bubbles 1 Kim Cương<br>🟢Luôn rơi Bubbles + Coin"
+    },
+    {
+        "title": "Homescape v8.0.1",
+        "img": "img\/37.png",
+        "file": "homescape-v8-0-1.html",
+        "features": "🟢Vô hạn Coin -&gt; không giảm khi dùng<br>🟢Vô hạn Move<br>🟢Vô hạn Booster<br>🟢Vô hạn Live<br>🟢Hoàn thành nhiệm vụ không cần Sao<br>🟢Unlock Season Pass"
+    },
+    {
+        "title": "Gardenscapes v8.8.0",
+        "img": "img\/38.png",
+        "file": "garrdenscapes-v8-8-0.html",
+        "features": "🟢Vô hạn Live<br>🟢Đóng băng Move<br>🟢Đóng băng Booster"
+    },
+    {
+        "title": "Trở về tuổi thơ v1.6.1",
+        "img": "img\/39.png",
+        "file": "tro-ve-tuoi-tho-v1-6-1.html",
+        "features": "🟢Vô hạn Tiền -&gt; dnfg 1 ít để tăng<br>🟢Vô hạn Phiếu bé ngoan -&gt; dùng để tăng<br>🟢Đóng băng Năng lượng<br>🟢Đóng băng Nước thức tỉnh<br>🟢Lên cấp nhanh"
+    },
+    {
+        "title": "Skullgirls [7.3.0]",
+        "img": "img\/40.png",
+        "file": "skullgirls-7-3-0.html",
+        "features": "🟢 Auto Win<br>🟢 Kẻ Thù Ngu - Bật Trước Khi Vào Trận<br>🟢 Vô Hạn Năng Lượng<br>🟢 Không Hồi Chiêu<br>🟢 1 Hit<br>🟢 Nhận Thưởng Free Pass"
+    },
+    {
+        "title": "Ngự Kiếm Cô Hồn [1.0.20]",
+        "img": "img\/41.png",
+        "file": "ngu-kie-m-co-hon-1-0-20.html",
+        "features": "🟢 1 Hit<br>🟢 Bất Tử<br>🟢 AntiBan -&gt; Test<br>🟢 NOTE : Ko Bật Hack Map Ma Ảnh Với PVP"
+    },
+    {
+        "title": "Mini Football v3.12.0",
+        "img": "img\/42.png",
+        "file": "mini-football-v3-12-0.html",
+        "features": "🟢Thể lực<br>🟢Chạy nhanh<br>🟢Sút mạnh<br>🟢AI ngu<br>🟢Tính năng bất ngờ"
+    },
+    {
+        "title": "Avalar : Tam Hiệp Bất Bại [04.72.01]",
+        "img": "img\/43.png",
+        "file": "avalar-tam-hiep-bat-bai-04-72-01.html",
+        "features": "🟢 Mua free gói nạp"
+    },
+    {
+        "title": "Shadow hunter bản xanh v11.124.2",
+        "img": "img\/44.png",
+        "file": "shadow-hunter-ban-xanh-v11-124-2.html",
+        "features": "🟢 Tăng cấp thiết bị miễn phí<br>🟢 Cửa hàng thương mại miễn phí<br>🟢 Cửa hàng thần bí miễn phí<br>🟢 Cửa hàng mảnh vỡ miễn phí<br>🟢 Cửa hàng video miễn phí<br>🟢 Ít tốn bụi đánh thức -&gt; nên để trên 1500 bụi trước khi hack để ít lỗi<br>🟢 Không yêu cầu thăng cấp<br>🟢 Không yêu cầu tiến hóa<br>🟢 1 items = 100 items"
+    },
+    {
+        "title": "Shadow hunter bản đỏ v10.124.2",
+        "img": "img\/45.png",
+        "file": "shadow-hunter-ban-do-v10-124-2.html",
+        "features": "🟢 Tăng cấp thiết bị miễn phí<br>🟢 Cửa hàng thương mại miễn phí<br>🟢 Cửa hàng thần bí miễn phí<br>🟢 Cửa hàng mảnh vỡ miễn phí<br>🟢 Cửa hàng video miễn phí<br>🟢 Ít tốn bụi đánh thức -&gt; nên để trên 1500 bụi trước khi hack để ít lỗi<br>🟢 Không yêu cầu thăng cấp<br>🟢 Không yêu cầu tiến hóa<br>🟢 1 items = 100 items"
+    },
+    {
+        "title": "Liên Quân Mobile EU [1.58.2]",
+        "img": "img\/46.png",
+        "file": "lien-quan-mobile-eu-1-58-2.html",
+        "features": "🟢 Map Sáng<br>🟢 Cam Xa<br>🟢 Hiện Unlti<br>🟢 Hiện Avatar<br>🟢 Hiện Rank<br>🟢 Antibanned Vip Si Líp"
+    },
+    {
+        "title": "Longleaf Valley v1.35.26",
+        "img": "img\/47.png",
+        "file": "longleaf-valley-v1-35-26.html",
+        "features": "🟢Ghép vật phẩm bất kì<br>🟢Miễn phí hồi chiêu<br>🟢Mua item miễn phí bằng Vàng<br>🟢Gói item không giảm khi mua"
+    },
+    {
+        "title": "Goddess of Victory: Nikke V133.6",
+        "img": "img\/48.png",
+        "file": "goddess-of-victory-nikke-v133-6.html",
+        "features": "🟢Vô hạn đạn<br>🟢Bất tử<br>🟢1 Hit"
+    },
+    {
+        "title": "Switching Heroes Idle RPG [2.41]",
+        "img": "img\/49.png",
+        "file": "switching-heroes-idle-rpg-2-41.html",
+        "features": "🟢 Bất Tử<br>🟢 1 Hit<br>🟢 Tốc Dánh<br>🟢 Không Hồi Chiêu"
+    },
+    {
+        "title": "Throneholder [1.6.3]",
+        "img": "img\/50.png",
+        "file": "throneholder-1-6-3.html",
+        "features": "🟢 1 Hit<br>🟢 Quái Qua Lượt<br>🟢 Xoá ADS<br>🟢 Mở Gói Tháng<br>🟢 Kim Cương - iGG (i8)"
+    },
+    {
+        "title": "Archers Survivor [1.0.1]",
+        "img": "img\/51.png",
+        "file": "archers-survivor-1-0-1.html",
+        "features": "🟢 Vô Hạn Tài Nguyên"
+    },
+    {
+        "title": "Ninja Battle [7.39.12]",
+        "img": "img\/52.png",
+        "file": "ninja-battle-7-39-12.html",
+        "features": "🟢 Bất Tử<br>🟢 NOTE : Đừng Cố Tìm Tài Nguyên (Ban)"
+    },
+    {
+        "title": "Goal Battle v4.533",
+        "img": "img\/53.png",
+        "file": "goal-battle-v4-533.html",
+        "features": "🟢Địch ngu<br>🟢Mở khóa Avatar"
+    },
+    {
+        "title": "Cafeland v2.49.3",
+        "img": "img\/54.png",
+        "file": "cafeland-v2-49-3.html",
+        "features": "🟢Đóng băng Tiền<br>🟢Đóng băng Vàng"
+    },
+    {
+        "title": "Tune Town v0.7.2",
+        "img": "img\/55.png",
+        "file": "tune-town-v0-7-2.html",
+        "features": "🟢Vô hạn Kim Cương -&gt; có thể dùng khi không đủ<br>🟢Đóng băng Năng Lượng<br>🟢Đóng băng Nốt nhạc<br>🟢Ghép vật phẩm bất kỳ"
+    },
+    {
+        "title": "Boonm Castle v1.4.3",
+        "img": "img\/56.png",
+        "file": "boonm-castle-v1-4-3.html",
+        "features": "🟢Quái yếu<br>🟢Máu cao<br>🟢Không tốn phí vào trận<br>🟢Có thể chơi tất cả ải<br>🟢Mở khóa Pass Battle<br>🟢Tiêm sẵn IGG để speed"
+    },
+    {
+        "title": "Vampires Fall 2 [1.1.108]",
+        "img": "img\/57.png",
+        "file": "vampires-fall-2-1-1-108.html",
+        "features": "🟢 Nhận 10k EXP<br>🟢 Mở All Slot Trong Balo<br>🟢 Speed 20%<br>🟢 1 Hit - Cẩn Thận Kẻ Thù Có Thể Múc Mình Đc<br>🟢 Vô Hạn Xu<br>🟢 Vô Hạn Mảnh Vỡ<br>🟢 Vô Hạn Đá Máu<br>🟢 Vô Hạn Điểm Kỹ Năng"
+    },
+    {
+        "title": "Castle Crush [2.11.0]",
+        "img": "img\/58.png",
+        "file": "castle-crush-2-11-0.html",
+        "features": "🟢 Vô hạn Vàng<br>🟢 Vô Hạn Tim<br>🟢 Vô Hạn Booster<br>🟢 Đóng Băng Moves<br>🟢 Auto Win"
+    },
+    {
+        "title": "Chum Chum Blest [1.13.740]",
+        "img": "img\/59.png",
+        "file": "chum-chum-blest-1-13-740.html",
+        "features": "🟢 Mở Gói Vé<br>🟢 Mở Full Tim<br>🟢 Xoá ads<br>🟢 Vô Hạn Xu<br>🟢 Vô Hạn Tim<br>🟢 Vô Hạn Sao<br>🟢 Vô Hạn Xúc Xắc<br>🟢 Vô Hạn Đuốc<br>🟢 Vô Hạn Vé"
+    },
+    {
+        "title": "Trở về tuổi thơ v1.7.0",
+        "img": "img\/60.png",
+        "file": "tro-ve-tuoi-tho-v1-7-0.html",
+        "features": "🟢Vô hạn Tiền -&gt; dùng 1 ít để tăng<br>🟢Vô hạn Phiếu bé ngoan -&gt; dùng 1 ít để tăng<br>🟢Lên LV nhanh<br>🟢Đóng băng Năng Lượng<br>🟢Đóng băng Thức tỉnh"
+    },
+    {
+        "title": "Pocket Champs v5.8.0",
+        "img": "img\/61.png",
+        "file": "pocket-champs-v5-8-0.html",
+        "features": "🟢Vô hạn Vàng<br>🟢Vô hạn Kim Cương"
+    },
+    {
+        "title": "Dungeon Slasher [0.736.1]",
+        "img": "img\/62.png",
+        "file": "dungeon-slasher-0-736-1.html",
+        "features": "🟢 1 Hit<br>🟢 Bất Tử<br>🟢 Free Shop (1 Số)"
+    },
+    {
+        "title": "Coin Master [3.5.2101]",
+        "img": "img\/63.png",
+        "file": "coin-master-3-5-2101.html",
+        "features": "🟢 IGG Giữ Vào Bật Speed<br>🟢 Skip ADS ( Nếu Có )<br>🟢 Bật 4G + VPN dễ tìm thấy invite"
+    },
+    {
+        "title": "Ash N Veil [1.1.16]",
+        "img": "img\/64.png",
+        "file": "ash-n-veil-1-1-16.html",
+        "features": "🟢 Xoá ADS<br>🟢 Tốc Đánh<br>🟢 Bất Tử<br>🟢 Buff -&gt; Cái Này AE Cẩn Thận Buff 1 Phát Lv Cao<br>🟢 Vô Hạn Tài Nguyên"
+    },
+    {
+        "title": "Transcendent [1.5.9]",
+        "img": "img\/65.png",
+        "file": "transcendent-1-5-9.html",
+        "features": "🟢 Bất Tử<br>🟢 Tua Nhanh Quảng Cáo (Nếu Có)"
+    },
+    {
+        "title": "Monster Brawl [0.0.3]",
+        "img": "img\/66.png",
+        "file": "monster-brawl-0-0-3.html",
+        "features": "🟢 Vô Hạn Xu<br>🟢 Vô Hạn Lõi<br>🟢 Vô Hạn Vật Tư<br>🟢 Vô Hạn Token<br>🟢 Bất Tử<br>🟢 Tua Nhanh Quảng Cáo (Nếu Có)"
+    },
+    {
+        "title": "Idle Pixel Magician [1.0.68]",
+        "img": "img\/67.png",
+        "file": "idle-pixel-magician-1-0-68.html",
+        "features": "🟢 Phạm Vi Tấn Công<br>🟢 Speed 20%<br>🟢 Quái Auto Chết<br>🟢 Tua Nhanh Quảng Cáo (Nếu Có)"
+    },
+    {
+        "title": "Cup Heroes v2.0",
+        "img": "img\/68.png",
+        "file": "cup-heroes-v2-0.html",
+        "features": "🟢Mua free gói nạp"
+    },
+    {
+        "title": "Junkineering Robot Wars RPG [1.1.4]",
+        "img": "img\/69.png",
+        "file": "junkineering-robot-wars-rpg-1-1-4.html",
+        "features": "🟢 Vô Hạn Tài Nguyên<br>🟢 1 Hit<br>🟢 Bất Tử"
+    },
+    {
+        "title": "Seraphim Saga [1.8.2]",
+        "img": "img\/70.png",
+        "file": "seraphim-saga-1-8-2.html",
+        "features": "🟢 Bất Tử<br>🟢 Vô Hạn Vàng<br>🟢 Nhận 10k EXP<br>🟢 Tốc Đánh"
+    },
+    {
+        "title": "99+ Gậy Gỗ Tăng Cường [99.1.15]",
+        "img": "img\/71.png",
+        "file": "99-gay-go-tang-cuong-99-1-15.html",
+        "features": "🟢 Bất Tử<br>🟢 Tốc Đánh<br>🟢 Không Hồi Chiêu<br>🟢 Tua Nhanh Quảng Cáo (Nếu Có)"
+    },
+    {
+        "title": "Ngự Kiếm Cô Hồn [1.0.21]",
+        "img": "img\/72.png",
+        "file": "ngu-kiem-co-hon-1-0-21.html",
+        "features": "🟢 1 Hit<br>🟢 Bất Tử<br>🟢 AntiBan (Test)"
+    },
+    {
+        "title": "Kingdom Guard [1.0.521]",
+        "img": "img\/73.png",
+        "file": "kingdom-guard-1-0-521.html",
+        "features": "🟢 Không Tốn Chi Phí Triệu Hồi (Trong Trận)<br>🟢 Tua Nhanh Quảng Cáo (Nếu Có)"
+    },
+    {
+        "title": "Dungeon Hunter 6 Awakening [1.1.4]",
+        "img": "img\/74.png",
+        "file": "dungeon-hunter-6-awakening-1-1-4.html",
+        "features": "🟢 Đóng Băng Quái\/Boss<br>🟢 Tốc Đánh<br>🟢 Speed 20%"
+    },
+    {
+        "title": "Summoner's Greed - Idle TD v1.94.3",
+        "img": "img\/75.png",
+        "file": "summoner-s-greed-idle-td-v1-94-3.html",
+        "features": "🟢Vô hạn Tiền tệ -&gt; có thể dùng khi không đủ<br>🟢Mua free gói nạp"
+    },
+    {
+        "title": "Soul Knight v7.3.0",
+        "img": "img\/76.png",
+        "file": "soul-knight-v7-3-0.html",
+        "features": "🟢Bất tử<br>🟢Damage cao<br>🟢Năng lượng<br>🟢Kỹ năng đặc biệt luôn dùng được<br>🟢Gem<br>🟢Cá khô"
+    },
+    {
+        "title": "Mech War v1.473",
+        "img": "img\/77.png",
+        "file": "mech-war-v1-473.html",
+        "features": "🟢Đóng băng Ticket -&gt; không giảm khi dùng<br>🟢Đóng băng Vàng -&gt; không giảm khi dùng<br>🟢x1000 XP<br>🟢H@ck nhận s,,,ú..,ng<br>🟢Thưởng VIP x1000<br>🟢H@ck nhận Robot<br>🟢Vô hạn Ticket<br>🟢B@n đ@n nhanh<br>🟢Bất tử -&gt; nâng cấp số máu của robot để bất tử"
+    },
+    {
+        "title": "Idle Pixel Magician [1.0.71]",
+        "img": "img\/78.png",
+        "file": "idle-pixel-magician-1-0-71.html",
+        "features": "🟢 Phạm Vi Tấn Công<br>🟢 Speed 20%<br>🟢 Quái Auto Chết<br>🟢 Tua Nhanh Quảng Cáo (Nếu Có)"
+    },
+    {
+        "title": "Into the Dead 2 [1.78.0]",
+        "img": "img\/79.png",
+        "file": "into-the-dead-2-1-78-0.html",
+        "features": "🟢 Vô Hạn Tiền Tệ<br>🟢 Vô Hạn Đạn<br>🟢 Vô Hạn Năng Lượng<br>🟢 Vip MemberShip"
+    },
+    {
+        "title": "Survivor.io [3.10.0]",
+        "img": "img\/80.png",
+        "file": "survivor-io-3-10-0.html",
+        "features": "🟢 1 Hit<br>🟢 Bất Tử<br>🟢 Xoá ADS ( Ko Cần Kích Hoạt )"
+    },
+    {
+        "title": "Mèo Súp v2.70.1",
+        "img": "img\/81.png",
+        "file": "meo-sup-v2-70-1.html",
+        "features": "🟢Nâng câp miễn phí<br>🟢Xây dựng miễn phí -&gt; không trừ Vàng khi xây dựng<br>🟢Mua miễn phí gói nạp -&gt; sẽ thanh toán vằng Vàng của game thay vì tiền mặt -&gt; yêu cầu đủ Vàng trước khi mua"
+    },
+    {
+        "title": "Newspace idle Tycoon [1.1.6]",
+        "img": "img\/82.png",
+        "file": "newspace-idle-tycoon-1-1-6.html",
+        "features": "🟢 Vô Hạn kim Cương"
+    },
+    {
+        "title": "Farm Guys [1.0.0]",
+        "img": "img\/83.png",
+        "file": "farm-guys-1-0-0.html",
+        "features": "🟢 Mua free gói nạp"
+    },
+    {
+        "title": "Go-Go Wheel Speed Drifting [1.0.0]",
+        "img": "img\/84.png",
+        "file": "go-go-wheel-speed-drifting-1-0-0.html",
+        "features": "🟢 Mua free gói nạp"
+    },
+    {
+        "title": "Hunting Sniper v2.05.0301",
+        "img": "img\/85.png",
+        "file": "hunting-sniper-v2-05-0301.html",
+        "features": "🟢Đối thủ ngu<br>🟢Luôn chiến thắng"
+    },
+    {
+        "title": "Township v28.0.0",
+        "img": "img\/86.png",
+        "file": "township-v28-0-0.html",
+        "features": "🟢Đóng băng Tiền tệ -&gt; không giảm khi dùng<br>🟢Fix lỗi đơ loading khi cài qua Esign"
+    },
+    {
+        "title": "Derailed [1.8.0]",
+        "img": "img\/87.png",
+        "file": "derailed-1-8-0.html",
+        "features": "🟢 Quái Ngu<br>🟢 Free Shop (Xoá ADS + Rương)<br>🟢 Vô Hạn Tài Nguyên"
+    },
+    {
+        "title": "Draft Showdown [1.1.4]",
+        "img": "img\/88.png",
+        "file": "draft-showdown-1-1-4.html",
+        "features": "🟢 Vô Hạn Tài Nguyên<br>🟢 Tua Nhanh Quảng Cáo"
+    },
+    {
+        "title": "Dragon Farm [1.0.9]",
+        "img": "img\/89.png",
+        "file": "dragon-farm-1-0-9.html",
+        "features": "🟢 Vô Hạn Kim Cương<br>🟢 Vô Hạn Năng Lượng"
+    },
+    {
+        "title": "Tomb Miner Merge [0.19.15]",
+        "img": "img\/90.png",
+        "file": "tomb-miner-merge-0-19-15.html",
+        "features": "🟢 Vô Hạn Kim Cương<br>🟢 Tua Nhanh Quảng Cáo"
+    },
+    {
+        "title": "Hill Climb 2 v1.66.0 - đã fix lỗi menu",
+        "img": "img\/91.png",
+        "file": "hill-climb-2-v1-66-0.html",
+        "features": "🟢Vô hạn Tiền tệ -&gt; có thể dùng khi không đủ"
+    },
+    {
+        "title": "Fortias Saga v1.0.81",
+        "img": "img\/92.png",
+        "file": "fortias-saga-v1-0-81.html",
+        "features": "🟢Đóng băng Tài nguyên -&gt; không giảm khi dùng<br>🟢Mở khoá Trang Phục<br>🟢Nhận quà không cần xem quảng cáo"
+    },
+    {
+        "title": "Gangstar Vegas v8.4.0",
+        "img": "img\/93.png",
+        "file": "gangstar-vegas-v8-4-0.html",
+        "features": "🟢Vô hạn Tiền<br>🟢Vô hạn Đạn<br>🟢Không cảnh sát"
+    },
+    {
+        "title": "Star Wafare v2.96",
+        "img": "img\/94.png",
+        "file": "star-wafare-v2-96.html",
+        "features": "🟢Vô hạn Tiền<br>🟢Vô hạn Đạn<br>🟢Bất tử<br>🟢Max LV"
+    },
+    {
+        "title": "Angry Birds 2 v3.28.2",
+        "img": "img\/95.png",
+        "file": "angry-birds-2.html",
+        "features": "🟢Vô hạn Tiền tệ"
+    },
+    {
+        "title": "War Robot v11.1.2",
+        "img": "img\/96.png",
+        "file": "war-robot-v11-1-2.html",
+        "features": "✅Speed+<br>✅Anti lock move<br>✅Focus lock speed<br>✅Anti lock ability<br>✅G U N not broken<br>✅Rapid fire tazan and other<br>✅PhaseShift can shooting<br>✅No skill cooldown<br>✅Speed++ (unsafe)<br>✅Combo skill<br>✅No gravity<br>✅Quantum radar<br>✅Speed x3 (safe)<br>✅Speed rotation g u n<br>✅Good for fly time<br>✅Auto skill<br>✅Anti lock pilot<br>✅Combo new robot<br>✅Freeze bot"
+    },
+    {
+        "title": "No Way Home [2.0.250]",
+        "img": "img\/97.png",
+        "file": "no-way-home-2-0-250.html",
+        "features": "🟢 Bất Tử<br>🟢 Chế Tạo Free<br>🟢 Free Shop (Mua Full Gói)"
+    },
+    {
+        "title": "Hero Blitz [1.6.0]",
+        "img": "img\/98.png",
+        "file": "hero-blitz-1-6-0.html",
+        "features": "🟢 1 Hit<br>🟢 Bất Tử<br>🟢 Xoá ADS<br>🟢 Vô Hạn Tài Nguyên"
+    },
+    {
+        "title": "Hellsquad Rrrush! [0.9.2]",
+        "img": "img\/99.png",
+        "file": "hellsquad-rrrush-0-9-2.html",
+        "features": "🟢 1 Hit<br>🟢 Bất Tử<br>🟢 Mở Gói Tháng<br>🟢 Tua Nhanh Quảng Cáo"
+    },
+    {
+        "title": "Tapocalypse [19.1.9]",
+        "img": "img\/100.png",
+        "file": "tapocalypse-19-1-9.html",
+        "features": "🟢 Bất Tử<br>🟢 Tìm Giá Trị iGG (Double)<br>🟢 Tua Nhanh Quảng Cáo"
+    },
+    {
+        "title": "KINK PARADISE (18+)",
+        "img": "img\/101.png",
+        "file": "kink-paradise-18.html",
+        "features": "🟢 Bất Tử<br>🟢 Đóng Băng Moves<br>🟢 Tua Nhanh Quảng Cáo (Nếu Có)"
+    },
+    {
+        "title": "Family Island [2025140.2.74534]",
+        "img": "img\/102.png",
+        "file": "family-island-2025140-2-74534.html",
+        "features": "🟢 iGG Tìm Giá Trị Double"
+    },
+    {
+        "title": "[18+] Star Lusts",
+        "img": "img\/103.png",
+        "file": "18-star-lusts.html",
+        "features": "🟢Bất tử"
+    },
+    {
+        "title": "KINK Paradise [1.4.0]",
+        "img": "img\/104.png",
+        "file": "kink-paradise-1-4-0.html",
+        "features": "🟢 Đóng Băng Moves<br>🟢 Bất Tử<br>🟢 Tua Nhanh Quảng Cáo (Nếu Có)"
+    },
+    {
+        "title": "Transcendent [1.6.0]",
+        "img": "img\/105.png",
+        "file": "transcendent-1-6-0.html",
+        "features": "🟢 Bất Tử<br>🟢 Tua Nhanh ADS (Nếu Có)"
+    },
+    {
+        "title": "Meow Rangers [1.1.0]",
+        "img": "img\/106.png",
+        "file": "meow-rangers-1-1-0.html",
+        "features": "🟢 Bất Tử<br>🟢 Không Hồi Chiêu<br>🟢 Đóng Băng Tài nguyên<br>🟢 Mở Gói Víp<br>🟢 Tua Nhanh ADS (Nếu Có)"
+    },
+    {
+        "title": "Quân Đoàn Slime [3.2.0]",
+        "img": "img\/107.png",
+        "file": "quan-doan-slime-3-2-0.html",
+        "features": "🟢 Đóng Băng Moves<br>🟢 Bất Tử<br>🟢 Tua Nhanh ADS (Nếu Có)"
+    },
+    {
+        "title": "Trò Chơi Trang Điểm Cô Dâu [11.1]",
+        "img": "img\/108.png",
+        "file": "tro-choi-trang-diem-co-dau-11-1.html",
+        "features": "🟢 Vô hạn Vàng<br>🟢 Vô Hạn Kim Cương<br>🟢 Tua Nhanh ADS (Nếu Có)"
+    },
+    {
+        "title": "Dragon Ball Legends v6.3.0",
+        "img": "img\/109.png",
+        "file": "dragon-ball-legends-v6-3-0.html",
+        "features": "🟢No skill cost<br>🟢All thẻ nhận ngọc rồng<br>🟢Hoàn thành Challenge<br>🟢Bất tử<br>🟢1 Hit<br>🟢Đóng băng thẻ trong trận<br>🟢Đóng băng Risingrush"
+    },
+    {
+        "title": "Travel Town v2.12.1091",
+        "img": "img\/110.png",
+        "file": "travel-town-v2-12-1091.html",
+        "features": "🟢Năng lượng<br>🟢Ghép vật phẩm bất kì<br>🟢Luôn rơi Coin<br>🟢Mua rương 1 Kim Cương<br>🟢Mở bong bóng 1 Kim Cương"
+    },
+    {
+        "title": "Plant vs Zombie 2 v12.3.1",
+        "img": "img\/111.png",
+        "file": "plant-vs-zombie-2-v12-3-1.html",
+        "features": "🟢Vô hạn Vàng<br>🟢Vô hạn Kim Cường<br>🟢Vô hạn Kẹo<br>🟢Vô hạn Mặt trời"
+    },
+    {
+        "title": "99+ Gậy Gỗ Tăng Cường Năng Cao [99.1.16]",
+        "img": "img\/112.png",
+        "file": "99-gay-go-tang-cuong-nang-cao-99-1-16.html",
+        "features": "🟢 Bất Tử<br>🟢 Tốc Đánh<br>🟢 Không Hồi Chiêu<br>🟢 Tua Nhanh ADS (Nếu Có)"
+    },
+    {
+        "title": "My Heroes : Dungeon Raid [26.0.5]",
+        "img": "img\/113.png",
+        "file": "my-heroes-dungeon-raid-26-0-5.html",
+        "features": "🟢 Bất Tử<br>🟢 Tua Nhanh ADS (Nếu Có)"
+    },
+    {
+        "title": "Box Head Zombies Must Die! [3.3.8]",
+        "img": "img\/114.png",
+        "file": "box-head-zombies-must-die-3-3-8.html",
+        "features": "🟢 1 Hit<br>🟢 Bất Tử<br>🟢 Speed 50%<br>🟢 Vô Hạn Tiền Tệ<br>🟢 Vô Hạn Năng Lượng<br>🟢 Mở All Hero<br>🟢 Nhận Thưởng PASS"
+    },
+    {
+        "title": "IMAE Guardian Girl [2.7]",
+        "img": "img\/115.png",
+        "file": "imae-guardian-girl-2-7.html",
+        "features": "🟢 Speed 50%<br>🟢 1 Hit<br>🟢 Bất Tử<br>🟢 Skill Nhanh<br>🟢 Không Hồi Chiêu"
+    },
+    {
+        "title": "Lust Goddess [18+] [v7.0.1]",
+        "img": "img\/116.png",
+        "file": "lust-goddess-18-v7-0-1.html",
+        "features": "🟢 Bất Tử<br>🟢 Tua Nhanh ADS (Nếu Có)"
+    },
+    {
+        "title": "Efootball v9.5.0",
+        "img": "img\/117.png",
+        "file": "efootball-v9-5-0.html",
+        "features": "🟢AI ngu<br>🟢Không chuyền<br>🟢Thủ môn ngu"
+    },
+    {
+        "title": "Goddess of Victory: Nikke v134.8",
+        "img": "img\/118.png",
+        "file": "goddess-of-victory-nikke-v134-8.html",
+        "features": "🟢1 Hit<br>🟢Bất tử<br>🟢Vô hạn Đ@n"
+    },
+    {
+        "title": "Homescapes v8.0.3",
+        "img": "img\/119.png",
+        "file": "homescapes-v8-0-3.html",
+        "features": "🟢Vô hạn Booster<br>🟢Vô hạn Live<br>🟢Võ hạn Move<br>🟢Unlock Season Pass<br>🟢Hoàn thành Nhiệm Vụ không cần Sao"
+    },
+    {
+        "title": "Tenkafu MADiablos Harem [18+] [v1.25.0]",
+        "img": "img\/120.png",
+        "file": "tenkafu-madiablos-harem-18-v1-25-0.html",
+        "features": "🟢 Bất Tử -&gt; Tới Lượt Kẻ Thù Thì (Bật)<br>🟢 1 Hit -&gt; Tới Lượt Mình Thì Húp<br>🟢 Tua Nhanh ADS Nếu Có"
+    },
+    {
+        "title": "FC Mobile v25.0.02",
+        "img": "img\/121.png",
+        "file": "fc-mobile-v25-0-02.html",
+        "features": "🟢AI ngu<br>🟢Thủ môn ngu"
+    },
+    {
+        "title": "Dream League Soccer v12.220",
+        "img": "img\/122.png",
+        "file": "dream-league-soccer-v12-220.html",
+        "features": "✅️️️️️️AI ngu<br>✅️️️️️️Không lỗi<br>✅️️️️️️Không việt vị -&gt; cái này lâu lâu hơi lỗi ae chủ động bật\/tắt nếu trận bị đơ<br>✅️Vô hạn thể lực<br>✅️Không penalty<br>✅️Vô hạn thay người<br>✅️️️️️️Không chấn thương<br>✅️Mờ khoá Custom Kit<br>✅️Mở khoá Custom logo<br>✅️Mở khoá Customizations"
+    },
+    {
+        "title": "Loot Heroes [1.6.5]",
+        "img": "img\/123.png",
+        "file": "loot-heroes-1-6-5.html",
+        "features": "🟢 Cấp 100<br>🟢 Nhận Thưởng Hằng Ngày<br>🟢 Bất Tử<br>🟢 Vô Hạn Kim Cương -&gt; Vào Shop Mua Rương Là Bú<br>🟢 Đóng Băng Tài Nguyên"
+    },
+    {
+        "title": "What Duck [0.0.9]",
+        "img": "img\/124.png",
+        "file": "what-duck-0-0-9.html",
+        "features": "🟢 Vô Hạn Kim Cương - Dùng 1 Ít Là Tăng<br>🟢 Vô Hạn Vàng -&gt; Dùng 1 ít Là Tăng<br>🟢 Vô Hạn Mảnh Ghép - Dùng 1 ít Là Tăng<br>🟢 Xoá ADS<br>🟢 Nhận Vô Hạn Pass Free<br>🟢 Anh Hùng Bất Tử - Chỉ ĐC trong trận đấu ải<br>✅ Game Có Đua Tóp ( Lạm Dụng Hắc Quá Bị Cook Chịu)"
+    },
+    {
+        "title": "Undercity [0.39]",
+        "img": "img\/125.png",
+        "file": "undercity-0-39.html",
+        "features": "🟢 Bất Tử<br>🟢 Vô Hạn Vàng -  Dùng 1 Ít Là Tăng<br>🟢 Vô Hạn Kim Cương - Dùng 1 ít Là Tăng<br>🟢 Tua Nhanh ADS (NẾu Có)"
+    },
+    {
+        "title": "Survivor.io [3.10.2]",
+        "img": "img\/126.png",
+        "file": "survivor-io-3-10-2.html",
+        "features": "🟢 Bất Tử<br>🟢 1 Hit<br>🟢 Xoá ADS (Ko Cần Kích Hoạt)"
+    },
+    {
+        "title": "Cherry Tale [18+] [1.7.0]",
+        "img": "img\/127.png",
+        "file": "cherry-tale-18-1-7-0.html",
+        "features": "🟢 1 Hit<br>🟢 Tốc Đánh<br>🟢 Không Hồi Chiêu<br>🟢 Vô Hạn Mana"
+    },
+    {
+        "title": "The Players Journey [18+] [v1.0.1669]",
+        "img": "img\/128.png",
+        "file": "the-players-journey-18-v1-0-1669.html",
+        "features": "🟢 BattlePass<br>🟢 Full Chức Năng ib Long Nguyễn"
+    },
+    {
+        "title": "Switching Heroes Idle RPG [2.50]",
+        "img": "img\/129.png",
+        "file": "switching-heroes-idle-rpg-2-50.html",
+        "features": "🟢 Bất Tử<br>🟢 1 Hit<br>🟢 Tốc Đánh<br>🟢 Không Hồi Chiêu"
+    },
+    {
+        "title": "Ngự Kiếm Cô Hồn [1.0.22]",
+        "img": "img\/130.png",
+        "file": "ngu-kiem-co-hon-1-0-22.html",
+        "features": "🟢 1 Hit<br>🟢 Bất Tử<br>🟢 AntiBan (Test)"
+    },
+    {
+        "title": "Ark Recode [18+] [1.3.0.101981]",
+        "img": "img\/131.png",
+        "file": "ark-recode-18-1-3-0-101981.html",
+        "features": "🟢 Không Hồi Chiêu<br>🟢 1 Hit -&gt; Tới Lượt Mình Thì Múc"
+    },
+    {
+        "title": "Empire Heroes [0.0.2]",
+        "img": "img\/132.png",
+        "file": "empire-heroes.html",
+        "features": "🟢 Bất Tử<br>🟢 Free Shop Gói Nạp"
+    },
+    {
+        "title": "The Battle Cats v14.4.0",
+        "img": "img\/133.png",
+        "file": "the-battle-cats-v14-4-0.html",
+        "features": "🟢Vô hạn Tiền<br>🟢1 Hit<br>🟢Food + EXP"
+    },
+    {
+        "title": "Rent Please v1.65.2",
+        "img": "img\/134.png",
+        "file": "rent-please-v1-65-2.html",
+        "features": "🟢Vô hạn Tiền<br>🟢Vô hạn Kim Cương<br>🟢Vô hạn xu Decor<br>🟢Vô hạn xu Leader<br>🟢Vô hạn Điện<br>🟢Vô hạn Nước<br>🟢Vô hạn Skip Ads"
+    },
+    {
+        "title": "Tiệm lẩu đường hạnh phúc v4.8.1",
+        "img": "img\/135.png",
+        "file": "tiem-lau-duong-hanh-phuc-v4-8-1.html",
+        "features": "🟢Vô hạn Tài Nguyên<br>🟢Vô hạn điểm Like Shiper<br>🟢Vô hạn điểm Tiệc rượu<br>🟢Mở khoá Trang phục<br>🟢Mở khoá Món ăn"
+    },
+    {
+        "title": "Coin Master [3.5.2121]",
+        "img": "img\/136.png",
+        "file": "coin-master-3-5-2121.html",
+        "features": "🟢 IGG giữ vào bật speed<br>🟢 Skip ADS ( Nếu Có )<br>🟢 Bật 4G + VPN dễ tìm thấy invite"
+    },
+    {
+        "title": "Archero [6.13.0]",
+        "img": "img\/137.png",
+        "file": "archero-6-13-0.html",
+        "features": "🟢 1 Hit<br>🟢 Xuyên Tường<br>🟢 Đóng Băng Quái<br>🟢 Bất Tử<br>🟢 Tua Nhanh ADS (Nếu Có)"
+    },
+    {
+        "title": "Stickman vs Monster Idle Game [2.0.03]",
+        "img": "img\/138.png",
+        "file": "stickman-vs-monster-idle-game-2-0-03.html",
+        "features": "🟢 Vô Hạn Kim Cương -&gt; 0 Vẫn Xài Được<br>🟢 Bất Tử<br>🟢 Mở Gói BattlePass<br>🟢 Mở Gói Tháng<br>🟢 Đóng Băng Tài Nguyên"
+    },
+    {
+        "title": "Huyền Thoại Thần Chết Nhí [1.0.1]",
+        "img": "img\/139.png",
+        "file": "huyen-thoai-than-chet-nhi-1-0-1.html",
+        "features": "🟢 Bất Tử<br>🟢 Đóng Băng Bạc"
+    },
+    {
+        "title": "Township v28.1.0",
+        "img": "img\/140.png",
+        "file": "township-v28-1-0.html",
+        "features": "🟢Đóng băng Tiền tệ<br>🟢Fix lỗi đơ khi cài qua Esign"
+    }
+]
