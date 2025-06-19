@@ -13,33 +13,35 @@
         body {
             background-color: #f8f9fa;
         }
-
         .post-card {
             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
-
         .post-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
-
-        /* THAY ĐỔI 1: Đặt lại kích thước ảnh như cũ */
         .post-img {
             width: 100px;
             height: 100px;
-            object-fit: cover; /* Giữ cho ảnh không bị méo */
+            object-fit: cover;
         }
-        
         .footer {
             padding: 1.5rem 0;
         }
-
         .pagination-container {
             display: flex;
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
             gap: 10px;
+        }
+        /* Style cho phần mô tả chức năng */
+        .features-text {
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* Giới hạn hiển thị 2 dòng */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
     </style>
 </head>
@@ -122,11 +124,9 @@
             myModal.show();
         });
 
-        // THAY ĐỔI 2: TÁI CẤU TRÚC LOGIC PHÂN TRANG
-        let allPosts = []; // Lưu trữ tất cả bài viết gốc
-        let currentPosts = []; // Lưu trữ danh sách bài viết đang được hiển thị (có thể là đã lọc)
+        let allPosts = [];
+        let currentPosts = [];
 
-        // Hàm chính để tải tất cả bài viết
         async function loadBlogPosts() {
             try {
                 const response = await fetch('post.txt');
@@ -139,10 +139,29 @@
                         if (!res.ok) return null;
                         const data = await res.text();
                         const doc = new DOMParser().parseFromString(data, 'text/html');
+                        
                         const title = doc.querySelector('h1')?.innerText || 'Không có tiêu đề';
-                        const container = doc.querySelector('div.container');
-                        const img = container?.querySelector('img')?.src || 'https://via.placeholder.com/100x100.png?text=DVC';
-                        return { title, img, file };
+                        const img = doc.querySelector('div.container img')?.src || 'https://via.placeholder.com/100x100.png?text=DVC';
+
+                        // THAY ĐỔI 1: Lấy nội dung phần "Chức năng"
+                        let features = 'Không có mô tả chi tiết.'; // Mặc định nếu không tìm thấy
+                        const bodyText = doc.body.innerText;
+                        const keyword = "Chức năng:";
+                        const keywordIndex = bodyText.indexOf(keyword);
+
+                        if (keywordIndex !== -1) {
+                            // Cắt chuỗi từ sau "Chức năng:"
+                            let extractedText = bodyText.substring(keywordIndex + keyword.length);
+                            // Tìm vị trí xuống dòng đầu tiên để kết thúc phần chức năng
+                            const endOfLineIndex = extractedText.indexOf('\n');
+                            if (endOfLineIndex !== -1) {
+                                extractedText = extractedText.substring(0, endOfLineIndex);
+                            }
+                            // Gán giá trị sau khi đã làm sạch khoảng trắng
+                            features = extractedText.trim();
+                        }
+                        
+                        return { title, img, file, features }; // Thêm "features" vào object trả về
                     } catch (error) {
                         console.error('Lỗi khi tải file:', file, error);
                         return null;
@@ -151,15 +170,14 @@
 
                 const posts = (await Promise.all(postPromises)).filter(p => p !== null);
                 allPosts = posts.reverse();
-                currentPosts = allPosts; // Ban đầu, danh sách hiện tại là tất cả bài viết
-                displayPage(1); // Hiển thị trang đầu tiên
+                currentPosts = allPosts;
+                displayPage(1);
             } catch (error) {
                 console.error('Lỗi khi tải post.txt:', error);
                 document.getElementById('blogContainer').innerHTML = `<div class="col-12"><div class="alert alert-danger">Không thể tải danh sách bài viết.</div></div>`;
             }
         }
 
-        // Hàm để hiển thị một trang cụ thể
         function displayPage(page) {
             const container = document.getElementById('blogContainer');
             const paginationContainer = document.getElementById('pagination');
@@ -171,20 +189,20 @@
                 return;
             }
 
-            const perPage = 10; // Số bài mỗi trang
+            const perPage = 10;
             const totalPages = Math.ceil(postsToDisplay.length / perPage);
-            page = Math.max(1, Math.min(page, totalPages)); // Đảm bảo số trang hợp lệ
+            page = Math.max(1, Math.min(page, totalPages));
 
             const start = (page - 1) * perPage;
             const end = start + perPage;
             const paginatedPosts = postsToDisplay.slice(start, end);
 
-            container.innerHTML = ''; // Xóa bài viết cũ
+            container.innerHTML = '';
             paginatedPosts.forEach(post => {
                 const postCol = document.createElement('div');
-                postCol.className = 'col-12'; // Mỗi card chiếm toàn bộ chiều rộng
+                postCol.className = 'col-12';
 
-                // THAY ĐỔI 3: Cấu trúc card mới để phù hợp với ảnh 100x100
+                // THAY ĐỔI 2: Thêm thẻ <p> để hiển thị nội dung "features"
                 postCol.innerHTML = `
                     <div class="card post-card">
                         <div class="row g-0">
@@ -194,6 +212,9 @@
                             <div class="col">
                                 <div class="card-body py-2 px-3">
                                     <h5 class="card-title mb-1">${post.title}</h5>
+                                    <p class="card-text text-muted small mb-2 features-text">
+                                        <b>Chức năng:</b> ${post.features}
+                                    </p>
                                     <a href="${post.file}" class="btn btn-sm btn-dark">Xem ngay...</a>
                                 </div>
                             </div>
@@ -206,7 +227,6 @@
             renderPagination(page, totalPages);
         }
 
-        // Hàm để vẽ các nút phân trang
         function renderPagination(currentPage, totalPages) {
             const paginationContainer = document.getElementById('pagination');
             paginationContainer.innerHTML = '';
@@ -225,7 +245,7 @@
                 a.addEventListener('click', (e) => {
                     e.preventDefault();
                     if (!isDisabled) {
-                        displayPage(pageNum); // Sửa lỗi: Gọi displayPage với số trang mới
+                        displayPage(pageNum);
                     }
                 });
                 li.appendChild(a);
@@ -245,15 +265,12 @@
             paginationContainer.appendChild(paginationUl);
         }
 
-        // Hàm tìm kiếm
         function searchPosts() {
             const query = document.getElementById('searchInput').value.toLowerCase();
-            // Luôn lọc từ danh sách gốc `allPosts`
             currentPosts = allPosts.filter(post => post.title.toLowerCase().includes(query));
-            displayPage(1); // Hiển thị trang đầu tiên của kết quả tìm kiếm
+            displayPage(1);
         }
 
-        // Bắt đầu tải trang
         loadBlogPosts();
     </script>
 </body>
