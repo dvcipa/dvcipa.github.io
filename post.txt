@@ -285,3 +285,5 @@
 143.bear-time-v1-0-21.html
 
 144.idle-weapon-shop-v1-5-1.html
+
+145.huyen-thoai-than-chet-nhi-1-0-4.html
