@@ -337,7 +337,27 @@
                     searchPosts();
                 }
             });
+const blogContainer = document.getElementById('blogContainer');
 
+// Lắng nghe sự kiện khi một mục được MỞ RA hoàn toàn
+blogContainer.addEventListener('shown.bs.collapse', function (event) {
+    // Tìm thẻ `<a>` đã kích hoạt sự kiện mở này
+    const toggleLink = document.querySelector(`a[href="#${event.target.id}"]`);
+    if (toggleLink) {
+        // Thay đổi nội dung chữ thành "Rút gọn"
+        toggleLink.textContent = 'Rút gọn';
+    }
+});
+
+// Lắng nghe sự kiện khi một mục được ĐÓNG LẠI hoàn toàn
+blogContainer.addEventListener('hidden.bs.collapse', function (event) {
+    // Tìm thẻ `<a>` đã kích hoạt sự kiện đóng này
+    const toggleLink = document.querySelector(`a[href="#${event.target.id}"]`);
+    if (toggleLink) {
+        // Trả nội dung chữ về lại ban đầu
+        toggleLink.textContent = '...Xem thêm';
+    }
+});
             loadBlogPosts().then(() => {
                 showNotificationModal();
             });
