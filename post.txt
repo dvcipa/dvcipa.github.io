@@ -303,3 +303,5 @@
 152.dragons-rise-of-berk-v1-97-13.html
 
 153.loot-heroes-v1-6-5.html
+
+154.hero-blitz-v1-7-0.html
