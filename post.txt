@@ -297,3 +297,5 @@
 149.dungeon-slasher-0-737-1.html
 
 150.meo-sup-v2-71-0.html
+
+151.monster-legends-v18-0-1.html
