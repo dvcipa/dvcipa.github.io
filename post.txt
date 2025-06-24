@@ -341,3 +341,5 @@
 171.survival-war-v2-3-3.html
 
 172.kingdoms-survivor-v3-21.html
+
+173.kingdom-guard-v1-0-525.html
