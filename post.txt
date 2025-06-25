@@ -361,3 +361,5 @@
 181.fishing-clash-v1-0-379.html
 
 182.fishing-master-v2-3-190050.html
+
+183.creature-hunter-idle-v1-0-18.html
