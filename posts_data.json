@@ -1336,5 +1336,11 @@
         "img": "img\/223.png",
         "file": "dragon-wings-v1-6-1.html",
         "features": "🟢1 Hit<br>🟢Bất tử<br>🟢Vàng -&gt; bán linh thú để tăng<br>🟢Kim Cương -&gt; đổi tên để tăng<br>🟢Super Card"
+    },
+    {
+        "title": "Disney Solitaire v1.3.0",
+        "img": "img\/224.png",
+        "file": "disney-solitaire-v1-3-0.html",
+        "features": "🟢Coin -&gt; nhận khi thắng<br>🟢Star -&gt; có thể dùng khi không đủ<br>🟢Auto win"
     }
 ]
