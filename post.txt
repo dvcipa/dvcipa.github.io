@@ -479,3 +479,5 @@
 240.archero-v6-15-0.html
 
 241.demonicsect-v104.html
+
+242.wizard-tower-v1-1-50.html
