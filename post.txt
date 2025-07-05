@@ -481,3 +481,5 @@
 241.demonicsect-v104.html
 
 242.wizard-tower-v1-1-50.html
+
+243.royal-knights-v1-1-29.html
