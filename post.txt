@@ -483,3 +483,5 @@
 242.wizard-tower-v1-1-50.html
 
 243.royal-knights-v1-1-29.html
+
+244.monster-legends-v18-0-2.html
