@@ -489,3 +489,5 @@
 245.simcity-v1-66-1.html
 
 246.epic-king-heroes-classic-td-v1-0-2.html
+
+247.defense-legend-5-pro-epic-td-v1-0-1.html
