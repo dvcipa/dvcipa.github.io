@@ -485,3 +485,5 @@
 243.royal-knights-v1-1-29.html
 
 244.monster-legends-v18-0-2.html
+
+245.simcity-v1-66-1.html
