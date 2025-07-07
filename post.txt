@@ -491,3 +491,5 @@
 246.epic-king-heroes-classic-td-v1-0-2.html
 
 247.defense-legend-5-pro-epic-td-v1-0-1.html
+
+248.universe-invader-2-v1-0-6.html
