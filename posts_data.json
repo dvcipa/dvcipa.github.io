@@ -1678,5 +1678,17 @@
         "img": "img\/280.png",
         "file": "darkstar-v1-0-48.html",
         "features": "🟢1 Hit<br>🟢Bất tử"
+    },
+    {
+        "title": "SacredLegacy v1.0",
+        "img": "img\/281.png",
+        "file": "sacredlegacy-v1-0.html",
+        "features": "🟢 Vàng -&gt; igg i4"
+    },
+    {
+        "title": "Amikin Survival v1.1.0",
+        "img": "img\/282.png",
+        "file": "amikin-survival-v1-1-0.html",
+        "features": "🟢Độ bền<br>🟢Chia vật phẩm<br>🟢1 Hit<br>🟢Bất tử"
     }
 ]
