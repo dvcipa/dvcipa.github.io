@@ -567,3 +567,5 @@
 284.skullgirls-v7-3-3.html
 
 285.cafeland-v2-51-5.html
+
+286.monster-legends-v18-0-5.html
