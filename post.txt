@@ -579,3 +579,5 @@
 290.shadow-fight-3-v1-42-0.html
 
 291.soul-huntress-v1-0-4.html
+
+292.spin-squad-v1-5-2.html
