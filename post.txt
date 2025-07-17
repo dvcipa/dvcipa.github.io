@@ -589,3 +589,5 @@
 295.tiem-lau-duong-hanh-phuc-v4-9-1.html
 
 296.mob-control-v2-90-2.html
+
+297.kingdom-guard-v1-0-530.html
