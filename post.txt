@@ -613,3 +613,5 @@
 307.fc-mobile-v25-9-08.html
 
 308.dungeon-slasher-v0-740-0.html
+
+309.switching-heroes-idle-rpg-v2-70.html
