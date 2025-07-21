@@ -617,5 +617,3 @@
 309.switching-heroes-idle-rpg-v2-70.html
 
 310.homescapes-v8-1-1.html
-
-311.triple-tile-v2-69-01.html
