@@ -1888,5 +1888,11 @@
         "img": "img\/315.png",
         "file": "brave-merge-v1-6-8.html",
         "features": "✅️ Kích hoạt Debug Menu -&gt; sau khi kích hoạt hack -&gt; ấn vào bánh răng ⚙️ góc phải màn hình -&gt; chọn tiếp nút Support để bật Debug Menu."
+    },
+    {
+        "title": "Township v29.0.0",
+        "img": "img\/316.png",
+        "file": "township-v29-0-0.html",
+        "features": "🟢Tiền không giảm khi dùng<br>🟢Vàng không giảm khi dùng<br>🟢Fix lỗi đơ loading… khi cài qua Esign"
     }
 ]
