@@ -647,3 +647,5 @@
 324.fate-reawakened-v1-0-4.html
 
 325.football-life-simulator-v0-0-14.html
+
+326.tiny-legends-v0-2-61.html
