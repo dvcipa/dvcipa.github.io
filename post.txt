@@ -731,3 +731,5 @@
 366.football-life-simulator-v0-0-17.html
 
 367.spin-squad-v1-6-1.html
+
+368.ghost-hunter-idle-v28-1-1.html
