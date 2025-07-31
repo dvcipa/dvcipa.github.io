@@ -733,3 +733,5 @@
 367.spin-squad-v1-6-1.html
 
 368.ghost-hunter-idle-v28-1-1.html
+
+369.hunt-and-hook-v0-15.html
