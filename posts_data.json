@@ -2158,5 +2158,11 @@
         "img": "img\/360.png",
         "file": "coop-td-v1-3-10.html",
         "features": "🟢Vàng trong trận<br>🟢Đá trong trận<br>🟢Damage cao"
+    },
+    {
+        "title": "Demon Squad v1.83",
+        "img": "img\/361.png",
+        "file": "demon-squad-v1-83.html",
+        "features": "🟢Đóng băng quái<br>🟢Bất tử"
     }
 ]
