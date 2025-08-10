@@ -801,3 +801,5 @@
 401.bloom-merge-v0-0-9.html
 
 402.switching-heroes-idle-rpg-v2-80.html
+
+403.legend-of-avatar-v1-3-2.html
