@@ -799,3 +799,5 @@
 400.cozy-cat-v0-2-8.html
 
 401.bloom-merge-v0-0-9.html
+
+402.switching-heroes-idle-rpg-v2-80.html
