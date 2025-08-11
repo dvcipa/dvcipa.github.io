@@ -803,3 +803,5 @@
 402.switching-heroes-idle-rpg-v2-80.html
 
 403.legend-of-avatar-v1-3-2.html
+
+404.factory-inc-v2-3-80.html
