@@ -2512,5 +2512,11 @@
         "img": "img\/419.png",
         "file": "zomzom-survival.html",
         "features": "🟢Năng lượng<br>🟢Máu<br>🟢Damage<br>🟢Phòng thủ"
+    },
+    {
+        "title": "Mine Knight v1.3.2",
+        "img": "img\/420.png",
+        "file": "mine-knight-v1-3-2.html",
+        "features": "🟢Vô hạn Tài nguyên"
     }
 ]
