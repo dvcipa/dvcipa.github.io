@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Account Limited Popup - Perfected</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@800;900&display=swap');
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Nunito', 'Arial Rounded MT Bold', sans-serif;
+        background-color: #888; /* Màu nền giả lập phía sau */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .modal-overlay {
+        background: rgba(0, 0, 0, 0.4);
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .popup-container {
+        width: 380px;
+        background-color: #fce8cc;
+        border: 4px solid #ba463b;
+        border-radius: 20px;
+        position: relative;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.5), inset 0 0 0 2px #d4a77e;
+        padding-bottom: 25px;
+    }
+
+    /* --- RIBBON HEADER --- */
+    .header-wrapper {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        margin-top: -30px;
+        z-index: 10;
+    }
+
+    .ribbon {
+        background: linear-gradient(to bottom, #de4f53, #cc3840);
+        padding: 15px 30px;
+        border-radius: 8px;
+        box-shadow: 0 6px 0 #9c252a, 0 8px 10px rgba(0,0,0,0.3);
+        position: relative;
+        z-index: 2;
+        border: 2px solid #f27c80;
+        border-bottom: none;
+    }
+
+    .ribbon h1 {
+        color: white;
+        font-size: 24px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-shadow: 2px 2px 0px #8a1d20, -1px -1px 0px #8a1d20, 1px -1px 0px #8a1d20, -1px 1px 0px #8a1d20, 0 4px 0px #8a1d20;
+        -webkit-text-stroke: 1px #8a1d20;
+    }
+
+    /* Ribbon tails (Phần đuôi ruy băng phía sau) */
+    .ribbon-tail {
+        position: absolute;
+        top: 25px;
+        width: 40px;
+        height: 45px;
+        background-color: #9c252a;
+        z-index: 1;
+    }
+
+    .ribbon-tail.left {
+        left: 5px;
+        border-radius: 5px 0 0 5px;
+        transform: skewY(15deg);
+    }
+    
+    .ribbon-tail.left::after {
+        content: '';
+        position: absolute;
+        left: -15px;
+        top: 0;
+        border-top: 22px solid transparent;
+        border-bottom: 23px solid transparent;
+        border-right: 15px solid #9c252a;
+    }
+
+    .ribbon-tail.right {
+        right: 5px;
+        border-radius: 0 5px 5px 0;
+        transform: skewY(-15deg);
+    }
+
+    .ribbon-tail.right::after {
+        content: '';
+        position: absolute;
+        right: -15px;
+        top: 0;
+        border-top: 22px solid transparent;
+        border-bottom: 23px solid transparent;
+        border-left: 15px solid #9c252a;
+    }
+
+    /* --- WARNING ICONS (Main) --- */
+    .warning-icon {
+        position: absolute;
+        width: 45px;
+        height: 45px;
+        z-index: 15;
+        top: -15px;
+    }
+
+    .warning-icon.left {
+        left: -15px;
+        transform: rotate(-15deg);
+    }
+
+    .warning-icon.right {
+        right: -15px;
+        transform: rotate(15deg);
+    }
+
+    /* --- FLOATING ELEMENTS (New) --- */
+    @keyframes float-anim {
+        0% { transform: translateY(0px) rotate(var(--rot)); }
+        50% { transform: translateY(-8px) rotate(var(--rot)); }
+        100% { transform: translateY(0px) rotate(var(--rot)); }
+    }
+
+    .float-mark {
+        position: absolute;
+        color: #de4f53;
+        font-size: 38px;
+        font-weight: 900;
+        font-family: 'Arial Rounded MT Bold', sans-serif;
+        text-shadow: 2px 2px 0px white, -2px -2px 0px white, 2px -2px 0px white, -2px 2px 0px white, 0 3px 5px rgba(0,0,0,0.4);
+        z-index: 1;
+        animation: float-anim 3s ease-in-out infinite;
+    }
+
+    .float-mark.m-1 { top: -60px; left: 10px; --rot: -15deg; animation-delay: 0s; }
+    .float-mark.m-2 { top: -50px; right: 0px; --rot: 20deg; animation-delay: 0.5s; }
+    .float-mark.m-3 { top: -20px; right: -40px; --rot: 10deg; font-size: 28px; animation-delay: 1s; }
+
+    .float-tri {
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        z-index: 1;
+        animation: float-anim 3.5s ease-in-out infinite;
+        filter: drop-shadow(0px 3px 3px rgba(0,0,0,0.3));
+    }
+
+    .float-tri.t-1 { top: -45px; left: 50px; --rot: 15deg; animation-delay: 0.2s; }
+    .float-tri.t-2 { top: -65px; right: 40px; --rot: -20deg; animation-delay: 0.7s; }
+
+    /* --- CONTENT TEXT --- */
+    .content {
+        padding: 40px 30px 20px 30px;
+        text-align: center;
+        color: #694129;
+    }
+
+    .main-text {
+        font-size: 17px;
+        font-weight: 900;
+        line-height: 1.4;
+        margin-bottom: 25px;
+    }
+
+    .limit-timer {
+        font-size: 22px;
+        font-weight: 900;
+        line-height: 1.3;
+        margin-bottom: 25px;
+    }
+
+    .limit-timer span {
+        font-size: 26px;
+    }
+
+    /* --- BUTTON --- */
+    .btn-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .ok-btn {
+        background: linear-gradient(to bottom, #98dd4a, #6bbb28);
+        border: 3px solid #3c6e14;
+        border-radius: 30px;
+        padding: 12px 60px;
+        color: white;
+        font-family: inherit;
+        font-size: 28px;
+        font-weight: 900;
+        cursor: pointer;
+        box-shadow: 0 6px 0 #3c6e14, 0 8px 10px rgba(0,0,0,0.3), inset 0 3px 5px rgba(255,255,255,0.5);
+        text-shadow: 2px 2px 0px #3c6e14, -1px -1px 0px #3c6e14, 1px -1px 0px #3c6e14, -1px 1px 0px #3c6e14;
+        -webkit-text-stroke: 1px #3c6e14;
+        transition: transform 0.1s;
+    }
+
+    .ok-btn:active {
+        transform: translateY(6px);
+        box-shadow: 0 0px 0 #3c6e14, 0 2px 5px rgba(0,0,0,0.3), inset 0 3px 5px rgba(255,255,255,0.5);
+    }
+</style>
+</head>
+<body>
+
+<div class="modal-overlay">
+    <div class="popup-container">
+        
+        <div class="header-wrapper">
+            
+            <div class="float-mark m-1">!</div>
+            <div class="float-mark m-2">!</div>
+            <div class="float-mark m-3">!</div>
+            
+            <div class="float-tri t-1">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50 10 L95 85 L5 85 Z" fill="white" stroke="#ce4345" stroke-width="10" stroke-linejoin="round"/>
+                    <rect x="44" y="35" width="12" height="25" fill="#ce4345" rx="3"/>
+                    <circle cx="50" cy="74" r="6" fill="#ce4345"/>
+                </svg>
+            </div>
+            <div class="float-tri t-2">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50 10 L95 85 L5 85 Z" fill="white" stroke="#ce4345" stroke-width="10" stroke-linejoin="round"/>
+                    <rect x="44" y="35" width="12" height="25" fill="#ce4345" rx="3"/>
+                    <circle cx="50" cy="74" r="6" fill="#ce4345"/>
+                </svg>
+            </div>
+            <div class="warning-icon left">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50 10 L95 85 L5 85 Z" fill="white" stroke="#ce4345" stroke-width="8" stroke-linejoin="round"/>
+                    <rect x="46" y="35" width="8" height="25" fill="#ce4345" rx="3"/>
+                    <circle cx="50" cy="72" r="5" fill="#ce4345"/>
+                </svg>
+            </div>
+            
+            <div class="ribbon-tail left"></div>
+            
+            <div class="ribbon">
+                <h1>DEVICE LIMITED</h1>
+            </div>
+            
+            <div class="ribbon-tail right"></div>
+
+            <div class="warning-icon right">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50 10 L95 85 L5 85 Z" fill="white" stroke="#ce4345" stroke-width="8" stroke-linejoin="round"/>
+                    <rect x="46" y="35" width="8" height="25" fill="#ce4345" rx="3"/>
+                    <circle cx="50" cy="72" r="5" fill="#ce4345"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="content">
+            <p class="main-text">
+                As a security measure to prevent unauthorized access and abuse, your device is restricted to logging into a maximum of three separate accounts within a 24-hour period. Once this limit is reached, you must wait exactly 24 hours from your first login before you can access any additional accounts.
+            </p>
+            <p class="limit-timer">
+                Limitations end in <br>
+                <span>24 hours</span>
+            </p>
+        </div>
+
+        <div class="btn-container">
+            <button class="ok-btn">OK</button>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
