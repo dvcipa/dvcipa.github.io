@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no">
 <title>Account Limited Popup - Perfected</title>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@800;900&display=swap');
@@ -21,6 +21,11 @@
         align-items: center;
         height: 100vh;
         overflow: hidden;
+        
+        /* BẢO VỆ LỚP 2: Chặn cuộn, zoom và quét khối text */
+        touch-action: none;
+        -webkit-user-select: none;
+        user-select: none;
     }
 
     .modal-overlay {
@@ -40,14 +45,12 @@
         position: relative;
         box-shadow: 0 10px 25px rgba(0,0,0,0.5), inset 0 0 0 2px #d4a77e;
         padding-bottom: 25px;
-        /* Gọi animation bung mở */
         animation: pop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
     }
 
-    /* --- ĐÃ SỬA CHỖ NÀY ĐỂ BÓP NHỎ 10% --- */
     @keyframes pop {
         0% { transform: scale(0.4); opacity: 0; }
-        100% { transform: scale(0.85); opacity: 1; } /* 0.85 tới 0.9 là khoảng bóp lại rất đẹp */
+        100% { transform: scale(0.85); opacity: 1; }
     }
 
     /* --- RIBBON HEADER --- */
@@ -90,47 +93,13 @@
         z-index: 1;
     }
 
-    .ribbon-tail.left {
-        left: 5px;
-        border-radius: 5px 0 0 5px;
-        transform: skewY(15deg);
-    }
-    
-    .ribbon-tail.left::after {
-        content: '';
-        position: absolute;
-        left: -15px;
-        top: 0;
-        border-top: 22px solid transparent;
-        border-bottom: 23px solid transparent;
-        border-right: 15px solid #9c252a;
-    }
-
-    .ribbon-tail.right {
-        right: 5px;
-        border-radius: 0 5px 5px 0;
-        transform: skewY(-15deg);
-    }
-
-    .ribbon-tail.right::after {
-        content: '';
-        position: absolute;
-        right: -15px;
-        top: 0;
-        border-top: 22px solid transparent;
-        border-bottom: 23px solid transparent;
-        border-left: 15px solid #9c252a;
-    }
+    .ribbon-tail.left { left: 5px; border-radius: 5px 0 0 5px; transform: skewY(15deg); }
+    .ribbon-tail.left::after { content: ''; position: absolute; left: -15px; top: 0; border-top: 22px solid transparent; border-bottom: 23px solid transparent; border-right: 15px solid #9c252a; }
+    .ribbon-tail.right { right: 5px; border-radius: 0 5px 5px 0; transform: skewY(-15deg); }
+    .ribbon-tail.right::after { content: ''; position: absolute; right: -15px; top: 0; border-top: 22px solid transparent; border-bottom: 23px solid transparent; border-left: 15px solid #9c252a; }
 
     /* --- WARNING ICONS --- */
-    .warning-icon {
-        position: absolute;
-        width: 45px;
-        height: 45px;
-        z-index: 15;
-        top: -15px;
-    }
-
+    .warning-icon { position: absolute; width: 45px; height: 45px; z-index: 15; top: -15px; }
     .warning-icon.left { left: -15px; transform: rotate(-15deg); }
     .warning-icon.right { right: -15px; transform: rotate(15deg); }
 
@@ -286,11 +255,35 @@
 </div>
 
 <script>
+    // Xử lý gửi tín hiệu đóng game
     function triggerClose() {
         if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.dvc_action) {
             window.webkit.messageHandlers.dvc_action.postMessage("close_game");
         }
     }
+
+    // BẢO VỆ LỚP 3: Bắt chết các sự kiện cảm ứng zoom của iOS Safari
+    // Chống Pinch-to-zoom
+    document.addEventListener('gesturestart', function (e) {
+        e.preventDefault();
+    });
+
+    // Chống vuốt đa điểm
+    document.addEventListener('touchmove', function (e) {
+        if (e.touches.length > 1 || e.scale !== 1) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+
+    // Chống Double-tap to zoom
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', function (e) {
+        let now = (new Date()).getTime();
+        if (now - lastTouchEnd <= 300) {
+            e.preventDefault();
+        }
+        lastTouchEnd = now;
+    }, { passive: false });
 </script>
 
 </body>
