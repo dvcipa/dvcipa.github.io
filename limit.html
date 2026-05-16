@@ -15,7 +15,7 @@
 
     body {
         font-family: 'Nunito', 'Arial Rounded MT Bold', sans-serif;
-        background-color: #888; /* Màu nền giả lập phía sau */
+        background-color: transparent; /* Đã sửa thành trong suốt */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -24,7 +24,7 @@
     }
 
     .modal-overlay {
-        background: rgba(0, 0, 0, 0.4);
+        background: transparent; /* Đã sửa thành trong suốt để không làm tối game */
         width: 100vw;
         height: 100vh;
         display: flex;
@@ -226,7 +226,6 @@
     <div class="popup-container">
         
         <div class="header-wrapper">
-            
             <div class="float-mark m-1">!</div>
             <div class="float-mark m-2">!</div>
             <div class="float-mark m-3">!</div>
@@ -281,11 +280,22 @@
         </div>
 
         <div class="btn-container">
-            <button class="ok-btn">OK</button>
+            <button class="ok-btn" onclick="triggerClose()">OK</button>
         </div>
 
     </div>
 </div>
+
+<script>
+    function triggerClose() {
+        if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.dvc_action) {
+            window.webkit.messageHandlers.dvc_action.postMessage("close_game");
+        } else {
+            // Dự phòng trường hợp test trên trình duyệt PC
+            console.log("Đóng game được kích hoạt!");
+        }
+    }
+</script>
 
 </body>
 </html>
