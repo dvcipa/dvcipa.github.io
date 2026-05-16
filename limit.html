@@ -15,7 +15,7 @@
 
     body {
         font-family: 'Nunito', 'Arial Rounded MT Bold', sans-serif;
-        background-color: transparent; /* Đã sửa thành trong suốt */
+        background-color: transparent; 
         display: flex;
         justify-content: center;
         align-items: center;
@@ -24,7 +24,7 @@
     }
 
     .modal-overlay {
-        background: transparent; /* Đã sửa thành trong suốt để không làm tối game */
+        background: transparent; 
         width: 100vw;
         height: 100vh;
         display: flex;
@@ -40,6 +40,19 @@
         position: relative;
         box-shadow: 0 10px 25px rgba(0,0,0,0.5), inset 0 0 0 2px #d4a77e;
         padding-bottom: 25px;
+        
+        /* THU NHỎ 20% TOÀN BỘ POPUP */
+        transform: scale(0.8);
+        transform-origin: center center;
+        
+        /* Animation hiện ra mượt mà */
+        animation: popUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    /* Hiệu ứng nảy khi hiện popup (Đã tích hợp scale 0.8 vào state cuối) */
+    @keyframes popUp {
+        0% { transform: scale(0.4); opacity: 0; }
+        100% { transform: scale(0.8); opacity: 1; }
     }
 
     /* --- RIBBON HEADER --- */
@@ -72,7 +85,7 @@
         -webkit-text-stroke: 1px #8a1d20;
     }
 
-    /* Ribbon tails (Phần đuôi ruy băng phía sau) */
+    /* Ribbon tails */
     .ribbon-tail {
         position: absolute;
         top: 25px;
@@ -114,7 +127,7 @@
         border-left: 15px solid #9c252a;
     }
 
-    /* --- WARNING ICONS (Main) --- */
+    /* --- WARNING ICONS --- */
     .warning-icon {
         position: absolute;
         width: 45px;
@@ -133,7 +146,7 @@
         transform: rotate(15deg);
     }
 
-    /* --- FLOATING ELEMENTS (New) --- */
+    /* --- FLOATING ELEMENTS --- */
     @keyframes float-anim {
         0% { transform: translateY(0px) rotate(var(--rot)); }
         50% { transform: translateY(-8px) rotate(var(--rot)); }
@@ -212,6 +225,9 @@
         text-shadow: 2px 2px 0px #3c6e14, -1px -1px 0px #3c6e14, 1px -1px 0px #3c6e14, -1px 1px 0px #3c6e14;
         -webkit-text-stroke: 1px #3c6e14;
         transition: transform 0.1s;
+        /* Đảm bảo nút ăn click dễ dàng */
+        position: relative;
+        z-index: 100;
     }
 
     .ok-btn:active {
@@ -291,7 +307,6 @@
         if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.dvc_action) {
             window.webkit.messageHandlers.dvc_action.postMessage("close_game");
         } else {
-            // Dự phòng trường hợp test trên trình duyệt PC
             console.log("Đóng game được kích hoạt!");
         }
     }
