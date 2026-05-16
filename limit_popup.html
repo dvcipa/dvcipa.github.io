@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+<title>Account Limited Popup - Reference Matched Ribbon</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@800;900&display=swap');
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Nunito', 'Arial Rounded MT Bold', sans-serif;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+        
+        touch-action: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+    .modal-overlay {
+        background: transparent;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .popup-container {
+        width: 380px;
+        background-color: #fcedd2;
+        border: 4px solid #ba463b;
+        border-radius: 20px;
+        position: relative;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        padding-bottom: 25px;
+        animation: pop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    @keyframes pop {
+        0% { transform: scale(0.4); opacity: 0; }
+        100% { transform: scale(0.85); opacity: 1; }
+    }
+
+    /* --- NEW HEADER STRUCTURE --- */
+    .header-wrapper {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        margin-top: -55px; 
+        margin-bottom: 32px; 
+        z-index: 10; 
+    }
+
+    .ribbon-group {
+        position: relative;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Bảng chính ruy băng - Tinh chỉnh độ phồng và màu sắc */
+    .ribbon-main {
+        position: relative;
+        /* Gradient nhiều lớp tạo độ cong 3D (Sáng ở trên, tối ở dưới) */
+        background: linear-gradient(180deg, #ff6b72 0%, #e63e46 15%, #bd232a 80%, #850f14 100%);
+        border-top: 1px solid rgba(255, 255, 255, 0.7); /* Viền bắt sáng */
+        padding: 12px 15px; 
+        border-radius: 12px; /* Tăng độ bo góc để mềm mại hơn */
+        box-shadow: 
+            inset 0 4px 6px rgba(255, 255, 255, 0.35), /* Highlight phồng ở viền trên */
+            inset 0 -3px 5px rgba(0, 0, 0, 0.2), /* Đổ bóng nhẹ viền dưới */
+            0 8px 0 #691016, /* Độ dày 3D của ruy băng */
+            0 16px 25px rgba(0,0,0,0.55); /* Đổ bóng gắt xuống popup */
+        z-index: 5;
+    }
+
+    .ribbon-main h1 {
+        color: white;
+        font-size: 26px; 
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin: 0;
+        line-height: 1.2;
+        /* Chữ nổi 3D khối đặc */
+        text-shadow: 
+            2px 2px 0px #5c0b11, 
+            -2px -2px 0px #5c0b11, 
+            2px -2px 0px #5c0b11, 
+            -2px 2px 0px #5c0b11, 
+            0 4px 0px #5c0b11,
+            0 5px 0px #42060b;
+        -webkit-text-stroke: 1px #5c0b11;
+        white-space: nowrap; 
+    }
+
+    /* Đuôi ruy băng - Tinh chỉnh độ cong và đổ bóng */
+    .ribbon-tail {
+        position: absolute;
+        top: 22px; /* Đẩy sâu xuống một chút để khớp với độ dày 8px của main */
+        width: 48px; 
+        height: 48px; 
+        z-index: 1; 
+        filter: drop-shadow(0px 8px 6px rgba(0,0,0,0.4)); /* Bóng mềm mại hơn */
+    }
+
+    .ribbon-tail.left {
+        right: 100%; 
+        margin-right: -12px; /* Gắn chặt vào thân chính */
+    }
+
+    .ribbon-tail.right {
+        left: 100%; 
+        margin-left: -12px; 
+    }
+
+    /* Nếp gấp nối - Điều chỉnh màu tối hơn tạo chiều sâu */
+    .ribbon-fold {
+        position: absolute;
+        bottom: -8px; 
+        width: 0;
+        height: 0;
+        border-style: solid;
+        z-index: 4; 
+    }
+
+    .ribbon-fold.left {
+        left: 4px;
+        border-width: 8px 12px 0 0;
+        border-color: #3b0306 transparent transparent transparent; /* Màu đổ bóng cực gắt */
+    }
+
+    .ribbon-fold.right {
+        right: 4px;
+        border-width: 8px 0 0 12px;
+        border-color: #3b0306 transparent transparent transparent;
+    }
+
+    /* --- LARGE CORNER WARNING ICONS --- */
+    .warning-icon { 
+        position: absolute; 
+        z-index: 5; 
+    }
+    
+    .warning-icon.left { 
+        width: 85px;  
+        height: 85px; 
+        top: -75px; 
+        left: -35px; 
+        transform: rotate(-18deg); 
+    } 
+    
+    .warning-icon.right { 
+        width: 70px;  
+        height: 70px; 
+        top: -58px; 
+        right: -25px; 
+        transform: rotate(15deg); 
+    } 
+    
+    .warning-icon svg {
+        fill: #fcedd2;
+        stroke: #bc383d;
+        stroke-width: 8;
+        stroke-linejoin: round;
+        width: 100%;
+        height: 100%;
+    }
+    .warning-icon svg .exc { fill: #bc383d; }
+
+    /* --- FLOATING ELEMENTS --- */
+    @keyframes float-anim {
+        0% { transform: translateY(0px) rotate(var(--rot)); }
+        50% { transform: translateY(-8px) rotate(var(--rot)); }
+        100% { transform: translateY(0px) rotate(var(--rot)); }
+    }
+
+    .float-mark {
+        position: absolute;
+        color: #de4f53;
+        font-size: 32px;
+        font-weight: 900;
+        font-family: 'Arial Rounded MT Bold', sans-serif;
+        text-shadow: 2px 2px 0px white, -2px -2px 0px white, 2px -2px 0px white, -2px 2px 0px white, 0 3px 5px rgba(0,0,0,0.4);
+        z-index: 1;
+        animation: float-anim 3s ease-in-out infinite;
+    }
+    .float-mark.m-1 { top: -60px; left: 0px; --rot: -15deg; animation-delay: 0s; }
+    .float-mark.m-2 { top: -45px; left: 70px; --rot: 20deg; font-size: 24px; animation-delay: 0.5s; }
+    .float-mark.m-3 { top: -20px; right: -40px; --rot: 10deg; font-size: 28px; animation-delay: 1s; }
+    .float-mark.m-4 { top: -60px; right: 20px; --rot: 10deg; font-size: 24px; animation-delay: 1s; }
+    .float-mark.m-5 { top: -75px; right: 80px; --rot: 25deg; animation-delay: 0.8s; }
+
+    .float-tri {
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        z-index: 1;
+        animation: float-anim 3.5s ease-in-out infinite;
+        filter: drop-shadow(0px 3px 3px rgba(0,0,0,0.3));
+    }
+    .float-tri.t-1 { top: -55px; left: 40px; --rot: 15deg; animation-delay: 0.2s; }
+    .float-tri.t-2 { top: -60px; right: 50px; --rot: -20deg; animation-delay: 0.7s; }
+    .float-tri.t-3 { top: -85px; right: 5px; --rot: 5deg; width: 18px; animation-delay: 1.2s; }
+    .float-tri svg { width: 100%; height: 100%; }
+    .float-tri svg path { fill: white; stroke: #ce4345; stroke-width: 10; stroke-linejoin: round; }
+    .float-tri svg rect { fill: #ce4345; }
+    .float-tri svg circle { fill: #ce4345; }
+
+    /* --- CONTENT TEXT --- */
+    .content {
+        padding: 10px 25px 20px 25px;
+        text-align: center;
+        color: #694129;
+    }
+    .main-text {
+        font-size: 16px;
+        font-weight: 800;
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
+    .limit-timer {
+        font-size: 22px;
+        font-weight: 900;
+        line-height: 1.3;
+    }
+    .limit-timer span { font-size: 26px; }
+
+    /* --- BUTTON --- */
+    .btn-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+    }
+    .ok-btn {
+        background: linear-gradient(to bottom, #a1d960 0%, #6cb133 50%, #4a8d1c 100%);
+        border: 3px solid #3c6e14;
+        border-radius: 30px;
+        padding: 12px 60px;
+        color: white;
+        font-family: inherit;
+        font-size: 28px;
+        font-weight: 900;
+        text-transform: uppercase;
+        cursor: pointer;
+        box-shadow: 0 8px 0 #3c6e14, 0 10px 15px rgba(0,0,0,0.4), inset 0 3px 5px rgba(255,255,255,0.5);
+        text-shadow: 2px 2px 0px #3c6e14, -1px -1px 0px #3c6e14, 1px -1px 0px #3c6e14, -1px 1px 0px #3c6e14;
+        -webkit-text-stroke: 1px #3c6e14;
+        transition: transform 0.1s, box-shadow 0.1s;
+    }
+    .ok-btn:active {
+        transform: translateY(6px);
+        box-shadow: 0 2px 0 #3c6e14, 0 2px 5px rgba(0,0,0,0.3), inset 0 3px 5px rgba(255,255,255,0.5);
+    }
+</style>
+</head>
+<body>
+
+<div class="modal-overlay">
+    <div class="popup-container">
+        
+        <div class="header-wrapper">
+            <div class="float-mark m-1">!</div>
+            <div class="float-mark m-2">!</div>
+            <div class="float-mark m-3">!</div>
+            <div class="float-mark m-4">!</div>
+            <div class="float-mark m-5">!</div>
+            
+            <div class="float-tri t-1">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 10 L95 85 L5 85 Z"/><rect x="44" y="35" width="12" height="25" rx="3"/><circle cx="50" cy="74" r="6"/></svg>
+            </div>
+            <div class="float-tri t-2">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 10 L95 85 L5 85 Z"/><rect x="44" y="35" width="12" height="25" rx="3"/><circle cx="50" cy="74" r="6"/></svg>
+            </div>
+            <div class="float-tri t-3">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 10 L95 85 L5 85 Z"/><rect x="44" y="35" width="12" height="25" rx="3"/><circle cx="50" cy="74" r="6"/></svg>
+            </div>
+            
+            <div class="ribbon-group">
+                <div class="ribbon-tail left">
+                    <svg viewBox="0 0 45 40" width="100%" height="100%" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <!-- Chuyển gradient để phần nối tối màu hơn phần vểnh ra -->
+                            <linearGradient id="left-tail-grad" x1="100%" y1="0%" x2="0%" y2="0%">
+                                <stop offset="0%" stop-color="#5a0a10" />
+                                <stop offset="100%" stop-color="#ba2d34" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M 45,0 L 5,1 C 1,1 0,4 3,7 L 14,18 C 16,20 16,22 14,24 L 8,31 C 6,34 6,38 10,38 L 45,40 Z" fill="url(#left-tail-grad)" />
+                    </svg>
+                </div>
+                
+                <div class="ribbon-tail right">
+                    <svg viewBox="0 0 45 40" width="100%" height="100%" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <!-- Chuyển gradient để phần nối tối màu hơn phần vểnh ra -->
+                            <linearGradient id="right-tail-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#5a0a10" />
+                                <stop offset="100%" stop-color="#ba2d34" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M 0,0 L 36,2 C 40,2 42,4 40,8 L 30,19 C 28,21 28,23 30,25 L 41,32 C 44,35 43,39 39,39 L 0,40 Z" fill="url(#right-tail-grad)" />
+                    </svg>
+                </div>
+
+                <div class="ribbon-fold left"></div>
+                <div class="ribbon-fold right"></div>
+                
+                <div class="ribbon-main">
+                    <h1>DEVICE LIMITED</h1> 
+                </div>
+            </div>
+        </div>
+
+        <div class="warning-icon left">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 10 L95 85 L5 85 Z" fill="#fcedd2"/><rect class="exc" x="46" y="35" width="8" height="25" rx="3"/><circle class="exc" cx="50" cy="72" r="5"/></svg>
+        </div>
+        <div class="warning-icon right">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 10 L95 85 L5 85 Z" fill="#fcedd2"/><rect class="exc" x="46" y="35" width="8" height="25" rx="3"/><circle class="exc" cx="50" cy="72" r="5"/></svg>
+        </div>
+
+        <div class="content">
+            <p class="main-text">
+                As a security measure to prevent unauthorized access and abuse, your device is restricted to logging into a maximum of 5 separate accounts within a 24-hour period. Once this limit is reached, you must wait exactly 24 hours from your first login before you can access any additional accounts.
+            </p>
+            <p class="limit-timer">
+                Limitations end in <br>
+                <span>24 hours</span> 
+            </p>
+        </div>
+
+        <div class="btn-container">
+            <button class="ok-btn" onclick="triggerClose()">OK</button>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function triggerClose() {
+        if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.dvc_action) {
+            window.webkit.messageHandlers.dvc_action.postMessage("close_game");
+        }
+    }
+
+    document.addEventListener('gesturestart', function (e) { e.preventDefault(); });
+    document.addEventListener('touchmove', function (e) {
+        if (e.touches.length > 1 || e.scale !== 1) { e.preventDefault(); }
+    }, { passive: false });
+
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', function (e) {
+        let now = (new Date()).getTime();
+        if (now - lastTouchEnd <= 300) { e.preventDefault(); }
+        lastTouchEnd = now;
+    }, { passive: false });
+</script>
+
+</body>
+</html>
